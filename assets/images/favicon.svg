@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="16" fill="#2E6038"/>
+  <g transform="translate(6, 6)">
+    <!-- Mushroom Cap -->
+    <path d="M26 10 C14 10 6 20 9 30 C11 34 18 36 26 36 C34 36 41 34 43 30 C46 20 38 10 26 10Z" fill="#FAF7F0"/>
+    <path d="M16 30 Q26 25 36 30" stroke="#DCECD7" stroke-width="1.8" stroke-linecap="round"/>
+    <path d="M12 22 C6 22 2 28 4 34 C6 37 11 38 17 38 C23 38 26 36 27 34 C28 28 21 22 12 22Z" fill="#E8F2E6"/>
+    <!-- Stem -->
+    <path d="M23 34 Q25 46 26 50 Q27 46 29 34" fill="#FAF7F0"/>
+    <circle cx="42" cy="14" r="3" fill="#E5A93C"/>
+  </g>
+</svg>

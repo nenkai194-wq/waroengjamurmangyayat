@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Administrator & SEO Center — Waroeng Jamur Mang Yayat</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/images/logo-icon.png">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            forest: {
+              700: '#1b4324',
+              800: '#13351a',
+              900: '#0c2411',
+            },
+            harvest: {
+              400: '#f59e0b',
+              500: '#d97706',
+              600: '#b45309',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #0e0704;
+      background-image: 
+        radial-gradient(circle at 20% 20%, rgba(217, 119, 6, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(27, 67, 36, 0.18) 0%, transparent 40%);
+    }
+  </style>
+
+  <script>
+    // Cek jika sudah memiliki token aktif, langsung redirect ke admin.html
+    (async function() {
+      const token = sessionStorage.getItem('wjmy_admin_token') || localStorage.getItem('wjmy_admin_token');
+      if (token) {
+        try {
+          const res = await fetch('/api/auth/verify', {
+            headers: { 'Authorization': `Bearer ${token}` }
+          });
+          const data = await res.json();
+          if (data.authenticated) {
+            window.location.replace('admin.html');
+          } else {
+            sessionStorage.removeItem('wjmy_admin_token');
+            localStorage.removeItem('wjmy_admin_token');
+          }
+        } catch (e) {
+          // Tetap di halaman login jika server tidak merespons
+        }
+      }
+    })();
+  </script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-stone-200">
+
+  <div class="max-w-md w-full relative">
+    
+    <!-- Ambient Glow Effect -->
+    <div class="absolute -inset-1.5 bg-gradient-to-r from-amber-500/30 via-emerald-600/20 to-amber-500/30 rounded-[32px] blur-xl opacity-75 pointer-events-none"></div>
+
+    <!-- Login Card -->
+    <div class="relative bg-[#190e09]/95 backdrop-blur-2xl border border-amber-500/30 rounded-3xl p-6 sm:p-9 shadow-2xl space-y-6">
+      
+      <!-- Brand & Mascot Header -->
+      <div class="text-center space-y-3">
+        <div class="inline-flex relative items-center justify-center">
+          <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-[#24160f] border-2 border-amber-400/80 p-1 shadow-xl flex items-center justify-center overflow-hidden">
+            <img src="assets/images/kang-supa-avatar.png" alt="Maskot Kang Supa" class="w-full h-full object-cover rounded-xl">
+          </div>
+          <span class="absolute -bottom-1 -right-1 px-2 py-0.5 rounded-full bg-emerald-500 text-stone-950 font-black text-[9px] uppercase tracking-wider border border-stone-900 shadow-md">
+            Online
+          </span>
+        </div>
+
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 font-bold text-[10px] uppercase tracking-widest mb-1.5">
+            <i data-lucide="shield-check" class="w-3 h-3 text-amber-400"></i>
+            Area Terproteksi Admin
+          </span>
+          <h1 class="text-xl sm:text-2xl font-black text-white tracking-wide uppercase">Waroeng Jamur</h1>
+          <p class="text-xs text-stone-400 mt-0.5">Portal Masuk Pengelola Konten, SEO & Chatbot</p>
+        </div>
+      </div>
+
+      <!-- Alert Notification Box -->
+      <div id="alertBox" class="hidden p-3.5 rounded-2xl text-xs font-semibold flex items-start gap-2.5 transition-all">
+        <i id="alertIcon" data-lucide="alert-circle" class="w-4 h-4 shrink-0 mt-0.5"></i>
+        <span id="alertMessage" class="leading-relaxed"></span>
+      </div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="space-y-4" onsubmit="handleLogin(event)">
+        
+        <!-- Username Field -->
+        <div class="space-y-1.5">
+          <label for="usernameInput" class="block text-xs font-bold text-stone-300 uppercase tracking-wider">
+            Nama Pengguna / Username
+          </label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3.5 text-stone-400 pointer-events-none">
+              <i data-lucide="user" class="w-4 h-4"></i>
+            </span>
+            <input 
+              type="text" 
+              id="usernameInput" 
+              required 
+              autocomplete="username"
+              placeholder="Contoh: admin" 
+              class="w-full pl-10 pr-4 py-3 rounded-xl bg-stone-900/90 border border-stone-700/80 text-white text-xs sm:text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all">
+          </div>
+        </div>
+
+        <!-- Password Field -->
+        <div class="space-y-1.5">
+          <label for="passwordInput" class="block text-xs font-bold text-stone-300 uppercase tracking-wider">
+            Kata Sandi / Password
+          </label>
+          <div class="relative flex items-center">
+            <span class="absolute left-3.5 text-stone-400 pointer-events-none">
+              <i data-lucide="lock" class="w-4 h-4"></i>
+            </span>
+            <input 
+              type="password" 
+              id="passwordInput" 
+              required 
+              autocomplete="current-password"
+              placeholder="Masukkan kata sandi..." 
+              class="w-full pl-10 pr-11 py-3 rounded-xl bg-stone-900/90 border border-stone-700/80 text-white text-xs sm:text-sm placeholder-stone-500 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 transition-all">
+            <button 
+              type="button" 
+              onclick="togglePasswordVisibility()" 
+              class="absolute right-3.5 text-stone-400 hover:text-white transition-colors p-0.5"
+              aria-label="Tampilkan / Sembunyikan Kata Sandi">
+              <i id="eyeIcon" data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Remember Me Checkbox -->
+        <div class="flex items-center justify-between text-xs pt-1">
+          <label class="flex items-center gap-2 cursor-pointer select-none text-stone-300 hover:text-white">
+            <input type="checkbox" id="rememberMe" checked class="w-4 h-4 rounded bg-stone-900 border-stone-700 text-amber-500 focus:ring-amber-400 accent-amber-500">
+            <span>Ingat saya di perangkat ini</span>
+          </label>
+          <span class="text-[11px] text-stone-500 font-medium">Privasi Terjaga</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button 
+          type="submit" 
+          id="submitBtn"
+          class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-stone-950 font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-amber-900/30 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+          <i data-lucide="log-in" class="w-4 h-4"></i>
+          <span id="btnText">Masuk ke Dashboard</span>
+        </button>
+
+      </form>
+
+      <!-- Account Hint Note -->
+      <div class="p-3.5 rounded-2xl bg-amber-400/5 border border-amber-400/20 text-[11px] text-stone-400 space-y-1">
+        <div class="flex items-center gap-1.5 font-bold text-amber-300">
+          <i data-lucide="key" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span>Kredensial Pengelola Default:</span>
+        </div>
+        <p class="leading-relaxed text-stone-300">
+          Username: <code class="px-1.5 py-0.5 bg-stone-900 rounded font-mono text-amber-200">admin</code> &nbsp;|&nbsp; 
+          Sandi: <code class="px-1.5 py-0.5 bg-stone-900 rounded font-mono text-amber-200">mangyayat2026</code>
+        </p>
+        <span class="block text-[10px] text-stone-500 italic">*Dapat diganti kapan saja melalui tab Keamanan di Dashboard Admin.</span>
+      </div>
+
+      <!-- Back to Frontend Link -->
+      <div class="pt-2 text-center border-t border-stone-800">
+        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold text-stone-400 hover:text-amber-400 transition-colors">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Kembali ke Website Utama</span>
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Footer Copyright -->
+    <p class="text-center text-[11px] text-stone-600 mt-5">
+      &copy; 2019–2026 Waroeng Jamur Mang Yayat • Tasikmalaya
+    </p>
+
+  </div>
+
+  <script>
+    // Initialize Lucide Icons
+    lucide.createIcons();
+
+    // Check query params for status messages
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('logged_out') === '1') {
+        showAlert('success', 'Anda telah berhasil keluar dari akun Administrator.');
+      } else if (params.get('expired') === '1') {
+        showAlert('warning', 'Sesi Anda telah berakhir. Silakan login kembali.');
+      }
+    });
+
+    function togglePasswordVisibility() {
+      const pwd = document.getElementById('passwordInput');
+      const eye = document.getElementById('eyeIcon');
+      if (pwd.type === 'password') {
+        pwd.type = 'text';
+        eye.setAttribute('data-lucide', 'eye-off');
+      } else {
+        pwd.type = 'password';
+        eye.setAttribute('data-lucide', 'eye');
+      }
+      lucide.createIcons();
+    }
+
+    function showAlert(type, message) {
+      const box = document.getElementById('alertBox');
+      const msg = document.getElementById('alertMessage');
+      const icon = document.getElementById('alertIcon');
+
+      box.className = 'p-3.5 rounded-2xl text-xs font-semibold flex items-start gap-2.5 transition-all';
+      if (type === 'success') {
+        box.classList.add('bg-emerald-950/60', 'border', 'border-emerald-500/40', 'text-emerald-300');
+        icon.setAttribute('data-lucide', 'check-circle');
+      } else if (type === 'warning') {
+        box.classList.add('bg-amber-950/60', 'border', 'border-amber-500/40', 'text-amber-300');
+        icon.setAttribute('data-lucide', 'alert-triangle');
+      } else {
+        box.classList.add('bg-rose-950/60', 'border', 'border-rose-500/40', 'text-rose-300');
+        icon.setAttribute('data-lucide', 'alert-circle');
+      }
+
+      msg.textContent = message;
+      box.classList.remove('hidden');
+      lucide.createIcons();
+    }
+
+    async function handleLogin(e) {
+      e.preventDefault();
+      const usernameInput = document.getElementById('usernameInput');
+      const passwordInput = document.getElementById('passwordInput');
+      const rememberMe = document.getElementById('rememberMe').checked;
+      const submitBtn = document.getElementById('submitBtn');
+      const btnText = document.getElementById('btnText');
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!username || !password) {
+        showAlert('error', 'Silakan isi username dan kata sandi.');
+        return;
+      }
+
+      // Disable button & show spinner
+      submitBtn.disabled = true;
+      submitBtn.classList.add('opacity-75', 'cursor-not-allowed');
+      btnText.textContent = 'Memverifikasi...';
+
+      try {
+        const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ username, password })
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+          showAlert('success', 'Login berhasil! Mengalihkan ke dashboard...');
+          
+          // Simpan token ke storage
+          if (rememberMe) {
+            localStorage.setItem('wjmy_admin_token', result.token);
+            localStorage.setItem('wjmy_admin_user', result.username);
+            sessionStorage.removeItem('wjmy_admin_token');
+          } else {
+            sessionStorage.setItem('wjmy_admin_token', result.token);
+            sessionStorage.setItem('wjmy_admin_user', result.username);
+            localStorage.removeItem('wjmy_admin_token');
+          }
+
+          setTimeout(() => {
+            window.location.replace('admin.html');
+          }, 600);
+        } else {
+          showAlert('error', result.message || 'Username atau kata sandi tidak cocok.');
+          passwordInput.value = '';
+          passwordInput.focus();
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+          btnText.textContent = 'Masuk ke Dashboard';
+        }
+      } catch (err) {
+        showAlert('error', 'Gagal menghubungi server. Pastikan koneksi server aktif.');
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('opacity-75', 'cursor-not-allowed');
+        btnText.textContent = 'Masuk ke Dashboard';
+      }
+    }
+  </script>
+</body>
+</html>

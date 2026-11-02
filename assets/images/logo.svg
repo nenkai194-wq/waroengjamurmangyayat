@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 80" fill="none">
+  <!-- Mushroom Icon Mark -->
+  <g transform="translate(10, 8)">
+    <!-- Mushroom Cap 1 (Main Oyster Cap) -->
+    <path d="M32 14 C18 14 8 26 12 38 C14 42 22 44 32 44 C42 44 50 42 52 38 C56 26 46 14 32 14Z" fill="#2E6038"/>
+    <!-- Gills under cap -->
+    <path d="M20 38 Q32 32 44 38" stroke="#FAF7F0" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+    <path d="M24 35 Q32 30 40 35" stroke="#FAF7F0" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    
+    <!-- Secondary Cap (Side Oyster Cap) -->
+    <path d="M16 28 C8 28 2 36 5 44 C7 47 13 48 20 48 C27 48 31 46 32 43 C34 35 25 28 16 28Z" fill="#3D7D4B"/>
+    <path d="M9 43 Q16 38 23 43" stroke="#FAF7F0" stroke-width="1.2" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Small Budding Cap -->
+    <path d="M46 32 C40 32 36 38 38 44 C40 47 45 48 50 48 C55 48 59 46 59 43 C60 36 53 32 46 32Z" fill="#4E995E"/>
+
+    <!-- Mushroom Stems -->
+    <path d="M28 43 Q30 58 31 62 Q33 58 35 43" fill="#DCECD7"/>
+    <path d="M17 47 Q22 56 28 60 Q23 54 18 47" fill="#C5DEC0"/>
+    <path d="M45 47 Q40 56 34 60 Q39 54 44 47" fill="#C5DEC0"/>
+
+    <!-- Organic Sprout Accent -->
+    <path d="M31 62 C31 64 30 65 28 65 C26 65 25 64 25 63 C25 61 28 60 31 62Z" fill="#D4A343"/>
+    <circle cx="54" cy="18" r="3.5" fill="#E5A93C"/>
+    <circle cx="10" cy="22" r="2.5" fill="#E5A93C" opacity="0.8"/>
+  </g>
+
+  <!-- Typography -->
+  <g transform="translate(85, 12)">
+    <text x="0" y="26" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="800" font-size="22" fill="#1C3823" letter-spacing="-0.5">WAROENG JAMUR</text>
+    <text x="0" y="47" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="700" font-size="16" fill="#C5832B" letter-spacing="2">MANG YAYAT</text>
+    <text x="0" y="60" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="600" font-size="9" fill="#6B7280" letter-spacing="2.5">KOTA TASIKMALAYA • EST. 2014</text>
+  </g>
+</svg>

@@ -1,0 +1,631 @@
+/* ==========================================================================
+   WAROENG JAMUR MANG YAYAT - OFFICIAL CORPORATE STYLESHEET
+   Adopsi Desain Korporat Ladang Lima (https://ladanglima.com/)
+   Bahasa: Bahasa Indonesia Penuh (Full Indonesian)
+   Nuansa: Cokelat Tanah Elegan & Futuristik, Emas Berwibawa, Rapi & Responsif
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap');
+
+:root {
+  --primary-dark: #122818;
+  --primary: #1e4526;
+  --primary-light: #2d6338;
+  --primary-accent: #3d804b;
+  --logo-orange: #d8631b;
+  --logo-orange-hover: #ba5010;
+  --harvest-gold: #f59e0b;
+  --harvest-gold-light: #fbbf24;
+  --earth-brown-dark: #190e09;
+  --earth-brown: #24160f;
+  --earth-brown-card: #2f1d14;
+  --bg-cream: #fbf9f5;
+  --bg-surface: #ffffff;
+  --text-dark: #162419;
+  --text-body: #445447;
+  --text-muted: #6e7e71;
+  --border-subtle: #eae4d8;
+  --radius-pill: 9999px;
+  --radius-card: 1.25rem;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  position: relative;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-cream);
+  color: var(--text-dark);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header Logo Sizing Protection */
+.header-logo-img {
+  height: 54px;
+  max-height: 56px;
+  width: auto;
+  max-width: 65px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .header-logo-img {
+    height: 60px;
+    max-height: 62px;
+    max-width: 75px;
+  }
+}
+
+/* Tipografi Korporat */
+h1, h2, h3, h4, .font-heading {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.font-editorial {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* ==========================================================================
+   NAVIGASI MENU UTAMA (Cokelat Tanah & Menu Klik Berwarna Emas)
+   ========================================================================== */
+.nav-link-corporate {
+  position: relative;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  color: #dfd5cb;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: all 0.25s ease;
+  padding: 0.4rem 0;
+  cursor: pointer;
+}
+
+@media (min-width: 1280px) {
+  .nav-link-corporate {
+    font-size: 0.765rem;
+    letter-spacing: 0.03em;
+  }
+}
+
+@media (min-width: 1536px) {
+  .nav-link-corporate {
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+.nav-link-corporate:hover {
+  color: #fbbf24;
+}
+
+/* Saat aktif / diklik: BERWARNA EMAS SESUAI PERMINTAAN USER */
+.nav-link-corporate.active {
+  color: #f59e0b !important;
+  text-shadow: 0 0 10px rgba(245, 158, 11, 0.45);
+}
+
+.nav-link-corporate::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  height: 2.5px;
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  border-radius: 9999px;
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.7);
+  transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-link-corporate:hover::after,
+.nav-link-corporate.active::after {
+  width: 100%;
+}
+
+/* Tombol Khas Ladang Lima (Pill Buttons - Responsif) */
+.btn-ll-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--primary);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(30, 69, 38, 0.22);
+}
+
+@media (min-width: 640px) {
+  .btn-ll-primary {
+    gap: 0.625rem;
+    padding: 0.875rem 2.25rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.btn-ll-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 69, 38, 0.3);
+}
+
+.btn-ll-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  background-color: transparent;
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 640px) {
+  .btn-ll-outline {
+    gap: 0.625rem;
+    padding: 0.8125rem 2.125rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.btn-ll-outline:hover {
+  background-color: #ffffff;
+  color: #1a0f09;
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.btn-ll-orange {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background-color: var(--logo-orange);
+  color: #ffffff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(216, 99, 27, 0.28);
+}
+
+@media (min-width: 640px) {
+  .btn-ll-orange {
+    gap: 0.625rem;
+    padding: 0.875rem 2.25rem;
+    font-size: 0.8125rem;
+  }
+}
+
+.btn-ll-orange:hover {
+  background-color: var(--logo-orange-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(216, 99, 27, 0.38);
+}
+
+/* Kartu Korporat Elegan */
+.card-ll {
+  background: #ffffff;
+  border-radius: var(--radius-card);
+  border: 1px solid var(--border-subtle);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-ll:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -15px rgba(22, 36, 25, 0.08);
+  border-color: #cad6cc;
+}
+
+/* Tag Overline */
+.overline-tag {
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.overline-tag::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 2px;
+  background-color: var(--harvest-gold);
+}
+
+/* ==========================================================================
+   PAGE VIEW TRANSITION (Sistem Halaman Baru Berdasarkan Menu)
+   ========================================================================== */
+.page-view {
+  animation: fadeInPage 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInPage {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   3 SLIDER HERO BANNER (RESPONSIF PENUH DI SEMUA UKURAN LAYAR)
+   ========================================================================== */
+.hero-slider-container {
+  position: relative;
+  min-height: 540px;
+  height: 100svh;
+  max-height: 850px;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .hero-slider-container {
+    min-height: 580px;
+    height: 75vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-slider-container {
+    min-height: 620px;
+    height: 85vh;
+  }
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out, transform 0.8s ease-out;
+  transform: scale(1.03);
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 10;
+}
+
+.hero-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 9, 5, 0.78) 0%, rgba(20, 12, 7, 0.65) 50%, rgba(14, 8, 4, 0.9) 100%);
+  z-index: 1;
+}
+
+/* Tombol Panah Slider */
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(36, 22, 15, 0.7);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.slider-arrow-btn:hover {
+  background: var(--harvest-gold);
+  color: #190e09;
+  border-color: var(--harvest-gold);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+}
+
+/* Dot Indikator Slider */
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+@media (min-width: 640px) {
+  .slider-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+.slider-dot.active {
+  width: 28px;
+  background: var(--harvest-gold);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+}
+
+@media (min-width: 640px) {
+  .slider-dot.active {
+    width: 36px;
+  }
+}
+
+/* ==========================================================================
+   ANIMASI SLIDER: TULISAN UTAMA KELUAR DARI SISI KANAN KE KIRI (POSISI NORMAL)
+   ========================================================================== */
+.hero-headline {
+  opacity: 0;
+  transform: translateX(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.hero-slide.active .hero-headline {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.12s;
+}
+
+/* Animasi Elemen Pendukung Slider (Badge, Deskripsi, Tombol Aksi) */
+.hero-badge {
+  opacity: 0;
+  transform: translateY(-15px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hero-slide.active .hero-badge {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.05s;
+}
+
+.hero-desc {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.hero-slide.active .hero-desc {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.25s;
+}
+
+.hero-cta {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.hero-slide.active .hero-cta {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.4s;
+}
+
+.slider-dot.active {
+  width: 36px;
+  background: var(--harvest-gold);
+  box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
+}
+
+/* 3 Pilar Kartu Utama */
+.pillar-card {
+  background: #ffffff;
+  border-radius: 1.25rem;
+  padding: 2.25rem 2rem;
+  border: 1px solid #ede8df;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pillar-card:hover {
+  border-color: var(--primary-accent);
+  box-shadow: 0 16px 36px -10px rgba(30, 69, 38, 0.1);
+  transform: translateY(-5px);
+}
+
+/* Tab Filter Produk */
+.tab-ll-corporate {
+  padding: 0.625rem 1.5rem;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-pill);
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+  color: #4b5563;
+  background-color: #f3efe6;
+}
+
+.tab-ll-corporate:hover {
+  background-color: #e8e3d8;
+  color: #1f2937;
+}
+
+.tab-ll-corporate.active {
+  background-color: var(--primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(30, 69, 38, 0.25);
+}
+
+/* Modal Popup */
+.modal-backdrop {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  transform: scale(0.96);
+  transition: transform 0.3s ease;
+}
+
+.modal-backdrop.open .modal-content {
+  transform: scale(1);
+}
+
+/* Kontrol Slider Kalkulator */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background: var(--harvest-gold);
+  border: 3px solid #ffffff;
+  cursor: pointer;
+  margin-top: -8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  transition: transform 0.15s ease;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #ffffff;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 8px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 4px;
+}
+
+/* =========================================================================
+   RUNNING TEXT (CONTINUOUS TICKER / MARQUEE BAR)
+   ========================================================================= */
+@keyframes continuousMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.running-text-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+  animation: continuousMarquee 32s linear infinite;
+}
+
+.running-text-track:hover {
+  animation-play-state: paused;
+}
+
+/* =========================================================================
+   ANIMASI KEDIP-KEDIP MASKOT KANG SUPA (FLOATING BUTTON & BADGE)
+   ========================================================================= */
+@keyframes kangSupaKedip {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.75), 0 8px 20px -4px rgba(0, 0, 0, 0.35);
+    filter: brightness(1);
+    border-color: #f59e0b;
+  }
+  50% {
+    transform: scale(1.09);
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0), 0 16px 32px -6px rgba(245, 158, 11, 0.6);
+    filter: brightness(1.2);
+    border-color: #fbbf24;
+  }
+}
+
+@keyframes kangSupaPingEffect {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+@keyframes dotBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(0.75);
+  }
+}
+
+.animate-kang-supa-kedip {
+  animation: kangSupaKedip 1.8s ease-in-out infinite;
+}
+
+.animate-kang-supa-ping {
+  animation: kangSupaPingEffect 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-dot-kedip {
+  animation: dotBlink 1s ease-in-out infinite;
+}

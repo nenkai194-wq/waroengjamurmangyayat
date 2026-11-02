@@ -1,0 +1,8 @@
+# Robots.txt Resmi Waroeng Jamur Mang Yayat
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /login.html
+Disallow: /data/
+
+Sitemap: https://waroengjamurmangyayat.com/sitemap.xml
