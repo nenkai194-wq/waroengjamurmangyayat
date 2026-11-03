@@ -956,7 +956,327 @@ function initKangSupaChatbot() {
 
   if (!toggleBtn || !chatWindow) return;
 
-  let knowledge = [];
+  let knowledge = [
+  {
+    "id": "kb-profil-usaha",
+    "category": "Profil Usaha",
+    "title": "Profil & Owner Waroeng Jamur Mang Yayat",
+    "keywords": [
+      "profil",
+      "owner",
+      "pemilik",
+      "irwan",
+      "setiawan",
+      "sejarah",
+      "berdiri",
+      "2019",
+      "tentang",
+      "siapa",
+      "pendiri",
+      "pengelola",
+      "lokasi",
+      "alamat",
+      "tasikmalaya",
+      "kawalu",
+      "sindangsuka",
+      "cicarate"
+    ],
+    "answer": "Waroeng Jamur Mang Yayat (WJMY) adalah usaha agribisnis jamur tiram yang didirikan pada awal tahun **2019** oleh **Irwan Setiawan (Kang Irwan)**. Berdomisili di Kp. Sindangsuka / Cicarate RT 01/RW 09, Kelurahan Gununggede, Kecamatan Kawalu, Kota Tasikmalaya (WhatsApp: **0821-1991-8783**). Usaha ini mencakup penyediaan bibit indukan (F0-F2), baglog siap berbuah, jamur segar panen fajar, olahan krispi, dan pembinaan kemitraan."
+  },
+  {
+    "id": "kb-alasan-usaha",
+    "category": "Edukasi Bisnis",
+    "title": "Alasan Memilih Usaha Budidaya Jamur Tiram",
+    "keywords": [
+      "kenapa",
+      "mengapa",
+      "alasan",
+      "memilih",
+      "keunggulan",
+      "keuntungan",
+      "peluang",
+      "potensi",
+      "usaha jamur",
+      "agribisnis jamur",
+      "pensiun",
+      "tanah",
+      "ruangan"
+    ],
+    "answer": "Alasan utama memilih usaha budidaya jamur tiram:\n• **Higienis & tertutup**: Tidak bersentuhan langsung dengan tanah; pemeliharaan baglog dan panen dilakukan di dalam ruangan tertutup (kumbung).\n• **Bahan baku melimpah & murah**: Memanfaatkan limbah serbuk gergaji kayu, dedak/huut, dan kapur dolomit.\n• **Harga pasar relatif stabil** dan permintaan konsumen tinggi karena lezat bernutrisi.\n• **Persaingan terkontrol**: Membutuhkan ketelatenan dan kesabaran (*rajin, tekun, telaten*).\n• Sangat ideal sebagai **persiapan usaha masa pensiun** maupun bisnis mandiri."
+  },
+  {
+    "id": "kb-3-segmen",
+    "category": "Edukasi Bisnis",
+    "title": "3 Segmen Konsentrasi Usaha Budidaya Jamur Tiram",
+    "keywords": [
+      "segmen",
+      "segmentasi",
+      "3 segmen",
+      "tahapan usaha",
+      "fokus usaha",
+      "pilihan usaha",
+      "kategori",
+      "pemula"
+    ],
+    "answer": "Usaha budidaya jamur tiram terbagi dalam 3 segmen konsentrasi:\n1. **Pembuat Bibit Jamur (F0/PDA, F1, F2)**: Menghasilkan biakan murni di botol kaca dengan alat laboratorium (autoclave/presto, pisau bedah steril, bunsen). Nilai jual tinggi, namun masih ada risiko kegagalan kontaminasi.\n2. **Pembuat Baglog (Media Tanam)**: Memerlukan ruang olah mixer adonan, mesin pres, drum steamer pengukusan, dan ruang inkubasi 25-40 hari.\n3. **Pembuahan & Pemasaran Jamur Segar**: Petani cukup membeli baglog siap panen dan merawatnya di kumbung. **Segmen ini paling minim risiko kegagalan dan sangat direkomendasikan untuk pemula**."
+  },
+  {
+    "id": "kb-kumbung-jamur",
+    "category": "Kumbung & Fasilitas",
+    "title": "Kumbung Jamur & Standar Ukuran Rak",
+    "keywords": [
+      "kumbung",
+      "ruang kumbung",
+      "kandang",
+      "bangunan",
+      "rak",
+      "ukuran rak",
+      "jarak rak",
+      "kontruksi",
+      "pemeliharaan kumbung",
+      "bambu",
+      "paranet"
+    ],
+    "answer": "Kumbung adalah bangunan khusus tempat menyusun baglog agar jamur tumbuh optimal:\n• **Konstruksi**: Dinding bilik bambu/paranet/tembok permanen, atap genteng/rumbia, dan sirkulasi udara terkontrol.\n• **Standar Rak**: Jarak antar tiang rak ±80 cm, jarak antar susunan ambalan 40–50 cm (muat 3–5 baglog tidur), lebar rak 20–25 cm, tinggi maksimal 1,5–2 meter.\n• **Pemeliharaan**: Bersihkan atap dan halaman kumbung berkala, buat parit keliling penahan air hujan, tutup lubang dinding dari serangga luar, dan bersihkan gulma rumput di lantai."
+  },
+  {
+    "id": "kb-komposisi-baglog",
+    "category": "Media Tanam",
+    "title": "Bahan Baku & Formulasi Pembuatan Baglog",
+    "keywords": [
+      "baglog",
+      "komposisi baglog",
+      "resep baglog",
+      "bahan baglog",
+      "campuran",
+      "serbuk kayu",
+      "dedak",
+      "huut",
+      "kapur",
+      "dolomit",
+      "gips",
+      "kadar air"
+    ],
+    "answer": "Komposisi standar media baglog (per 100 kg serbuk kayu):\n• **Serbuk gergaji kayu halus**: 100 kg (diayak seragam tanpa potongan tajam).\n• **Dedak / Bekatul / Huut halus**: 15 kg (sumber nutrisi utama).\n• **Kapur dolomit**: 2 kg & **Gips**: 1 kg (penstabil pH media di kisaran 6–7).\n• **Air bersih**: hingga kadar air 60–65% (uji kepal: digenggam kuat hanya menetes 1 tetes air, saat dibuka kepalan tidak buyar).\nCampuran diaduk merata, dikomposkan 1–3 hari, lalu dipadatkan dalam plastik PP tahan panas (18x35 atau 20x35 cm) dan dipasang cincin leher."
+  },
+  {
+    "id": "kb-sterilisasi-inokulasi",
+    "category": "Teknis Budidaya",
+    "title": "Sterilisasi (Steaming) & Inokulasi Bibit",
+    "keywords": [
+      "sterilisasi",
+      "steam",
+      "pengukusan",
+      "mengukus",
+      "drum steamer",
+      "autoclave",
+      "inokulasi",
+      "tanam bibit",
+      "bibit f2",
+      "pendinginan",
+      "spatula"
+    ],
+    "answer": "• **Sterilisasi (Pengukusan)**: Dilakukan menggunakan drum steamer pada suhu 70–100°C selama 5–8 jam (atau autoclave suhu 121°C tekanan 1 atm selama 4 jam) untuk membunuh bakteri dan spora jamur liar.\n• **Pendinginan**: Baglog didiamkan 8–12 jam hingga suhu turun ke 30–35°C sebelum ditanami bibit.\n• **Inokulasi**: Penanaman ±1 sendok teh bibit F2 steril ke dalam mulut baglog menggunakan spatula steril di dekat api bunsen, lalu mulut baglog ditutup kembali dengan kapas/penutup."
+  },
+  {
+    "id": "kb-inkubasi-suhu",
+    "category": "Perawatan Budidaya",
+    "title": "Masa Inkubasi, Suhu & Kelembapan Ideal",
+    "keywords": [
+      "inkubasi",
+      "miselium",
+      "suhu",
+      "kelembaban",
+      "kelembapan",
+      "berapa lama inkubasi",
+      "tanda putih",
+      "derajat",
+      "cahaya"
+    ],
+    "answer": "• **Fase Inkubasi**: Suhu ruang 22–28°C (kelembaban 50–60%) dalam kondisi gelap/minim cahaya selama 25–45 hari hingga miselium merambat putih tebal merata 100%.\n• **Fase Pembuahan (Tumbuh Jamur)**: Suhu ideal 16–22°C (atau 22–28°C di dataran sedang), kelembaban tinggi 90–95%, dengan pencahayaan pantul 60–70% (tidak terkena sinar matahari langsung).\nJika kelembaban kurang, pinhead akan mengering; jika terlalu basah, tubuh buah akan membusuk."
+  },
+  {
+    "id": "kb-penyiraman",
+    "category": "Perawatan Budidaya",
+    "title": "Teknik Penyiraman Baglog & Kumbung",
+    "keywords": [
+      "siram",
+      "penyiraman",
+      "cara menyiram",
+      "pengkabutan",
+      "mist spray",
+      "kapan menyiram",
+      "berapa kali siram",
+      "air siram"
+    ],
+    "answer": "Teknik penyiraman jamur tiram yang benar:\n• Gunakan air bersih dengan **sistem pengkabutan (*mist spray*)**.\n• Arahkan kabut air ke lantai, dinding kumbung, dan lorong sela-sela baglog untuk menjaga kelembapan 90–95%.\n• **Peringatan**: Jangan menyemprot dengan semburan air kencang langsung ke dalam mulut baglog atau ke tudung jamur muda karena memicu pembusukan.\n• Frekuensi: 2–3 kali sehari (pagi, siang, sore) disesuaikan dengan suhu dan cuaca."
+  },
+  {
+    "id": "kb-ciri-panen",
+    "category": "Pemanenan",
+    "title": "Ciri-Ciri Jamur Tiram Siap Panen",
+    "keywords": [
+      "panen",
+      "ciri siap panen",
+      "kapan panen",
+      "waktu panen",
+      "tanda siap petik",
+      "usia panen",
+      "bentuk jamur"
+    ],
+    "answer": "Ciri-ciri jamur tiram siap dipetik:\n• **Usia**: 3–5 hari setelah pinhead (tunas kecil) muncul.\n• **Batang**: Sudah seukuran jari orang dewasa normal.\n• **Tudung**: Mekar sempurna berdiameter 3–14 cm, tekstur kenyal kokoh, tepi belum keriting atau pecah/menguning.\n• **Warna**: Putih bersih / abu segar dan spora belum beterbangan.\nWaktu panen terbaik adalah waktu fajar (05.00–08.00 WIB) agar jamur tetap segar dan berbobot saat dipasarkan."
+  },
+  {
+    "id": "kb-teknik-panen-pasca",
+    "category": "Pemanenan",
+    "title": "Teknik Petik & Perawatan Pasca Panen",
+    "keywords": [
+      "cara panen",
+      "mencabut",
+      "pasca panen",
+      "sisa akar",
+      "kerik baglog",
+      "nutrisi baglog",
+      "poc",
+      "hormon",
+      "siklus panen",
+      "berapa kali panen"
+    ],
+    "answer": "• **Cara Panen**: Cabut seluruh rumpun jamur hingga ke pangkal akar terdalam. Jangan dipotong menyisakan tangkai di dalam mulut baglog karena akan membusuk dan mengundang ulat/belatung.\n• **Perawatan Pasca Panen**: Bersihkan sisa akar, kerik tipis permukaan media di mulut baglog, lalu semprotkan nutrisi POC organik atau hormonik perangsang.\n• **Hasil**: Pinhead baru akan tumbuh kembali dalam 4–7 hari. Satu baglog produktif dapat dipanen 6–10 kali selama masa produktif 3–4 bulan."
+  },
+  {
+    "id": "kb-hama-penyakit",
+    "category": "Hama & Penyakit",
+    "title": "Hama, Penyakit & Pengendalian Organik",
+    "keywords": [
+      "hama",
+      "penyakit",
+      "ulat",
+      "belatung",
+      "lalat",
+      "nyamuk",
+      "kepik",
+      "rametuk",
+      "jamur hijau",
+      "trichoderma",
+      "jamur liar",
+      "obat kimia",
+      "pestisida"
+    ],
+    "answer": "• **Hama Umum**: Belatung/ulat (muncul jika panen terlambat atau ada sisa akar membusuk), nyamuk kebon, rametuk, lalat, kepik terbang, dan rayap.\n• **Penyakit/Kontaminasi**: Jamur hijau (*Trichoderma*), jamur oranye/karet, dan jamur susu.\n• **Pengendalian**: **Sangat tidak disarankan memakai obat kimia sintetis**. Gunakan pestisida nabati/organik, pasang jaring kasa/paranet pada ventilasi, jaga sanitasi lantai, serta segera pisahkan/buang baglog yang terkontaminasi parah."
+  },
+  {
+    "id": "kb-gizi-khasiat",
+    "category": "Edukasi Produk",
+    "title": "Kandungan Gizi, Manfaat & Khasiat Kesehatan",
+    "keywords": [
+      "gizi",
+      "nutrisi",
+      "manfaat",
+      "khasiat",
+      "kesehatan",
+      "protein",
+      "kolesterol",
+      "diet",
+      "vitamin",
+      "kanker",
+      "obat"
+    ],
+    "answer": "Jamur tiram adalah sumber nutrisi super (*superfood*):\n• **Protein Tinggi**: Mengandung 10,5%–30,4% protein nabati (2 kali lebih tinggi dari asparagus dan kubis, jauh di atas beras).\n• **9 Asam Amino Esensial**: Kaya asam amino lengkap yang dibutuhkan tubuh manusia.\n• **Kaya Serat & Rendah Lemak**: Mengandung 72% asam lemak tak jenuh, aman dan efektif untuk diet sehat.\n• **Khasiat Medis**: Mengandung senyawa *pleuran*, *Beta-D-glucan*, dan efek statin alami (*plovastin*) yang terbukti klinis membantu menurunkan kolesterol, meningkatkan daya tahan tubuh, serta memiliki sifat antitumor dan antikanker."
+  },
+  {
+    "id": "kb-manajemen-6m",
+    "category": "Manajemen Usaha",
+    "title": "Manajemen Agribisnis 6M Waroeng Jamur",
+    "keywords": [
+      "manajemen",
+      "6m",
+      "man",
+      "money",
+      "machine",
+      "material",
+      "market",
+      "methods",
+      "sop",
+      "pengelolaan"
+    ],
+    "answer": "Penerapan 6M dalam budidaya jamur tiram:\n• **Man (Manusia)**: Tenaga kerja teliti, tekun, dan disiplin SOP.\n• **Money (Modal/Uang)**: Pengelolaan modal kerja, perhitungan cashflow, dan simulasi ROI.\n• **Machine (Peralatan)**: Mesin mixer, alat pres baglog, drum steamer, dan sprayer pengkabut.\n• **Material (Bahan)**: Kualitas serbuk kayu, bibit unggul F0-F2 teruji, dan dedak murni.\n• **Market (Pasar)**: Saluran pasokan pasar tradisional, restoran, reseller, hingga konsumen akhir.\n• **Methods (Metode/SOP)**: Prosedur operasional terstandar dari inokulasi hingga penanganan pasca panen."
+  },
+  {
+    "id": "kb-pemasaran-olahan",
+    "category": "Pemasaran",
+    "title": "Teknik Pemasaran & Diversifikasi Produk Olahan",
+    "keywords": [
+      "pemasaran",
+      "jual jamur",
+      "strategi",
+      "pasar",
+      "target pasar",
+      "olahan",
+      "keripik",
+      "krispi",
+      "abon",
+      "nugget",
+      "kuliner"
+    ],
+    "answer": "Strategi pemasaran Waroeng Jamur Mang Yayat:\n• **Jamur Segar**: Pasokan subuh ke pasar induk, pedagang sayur keliling, rumah makan, dan hotel.\n• **Produk Olahan Bernilai Tambah**: Mengolah jamur menjadi keripik jamur crispy rendah minyak (*spinner*), abon jamur, dan camilan sehat.\n• **Paket Edukasi & Kemitraan**: Penjualan paket kumbung mini rumahan, bibit botol kultur, dan baglog siap berbuah bagi pembudidaya baru."
+  },
+  {
+    "id": "kb-katalog-harga",
+    "category": "Produk & Harga",
+    "title": "Daftar Produk & Harga Resmi",
+    "keywords": [
+      "produk",
+      "katalog",
+      "harga",
+      "jual",
+      "beli",
+      "pesan",
+      "order",
+      "biaya",
+      "baglog berapa",
+      "jamur sekilo"
+    ],
+    "answer": "Daftar produk resmi Waroeng Jamur Mang Yayat:\n1. **Jamur Tiram Putih Segar Grade A**: Rp 16.000 / kg (panen fajar 05.00 WIB, segar tanpa bahan kimia).\n2. **Baglog Jamur Siap Berbuah**: Rp 3.500 / baglog (miselium 90–100% tebal, siap tumbuh).\n3. **Keripik Jamur Tiram Crispy**: Rp 15.000 / pouch (renyah gurih, ditiriskan mesin spinner).\n4. **Paket Kumbung Mini Edukasi Rumahan**: Rp 55.000 / paket (isi 5 baglog + sprayer kabut mini).\n5. **Bibit Murni Jamur F0, F1, F2**: Hubungi langsung untuk stok kultur botol.\nPemesanan via WhatsApp: **0821-1991-8783**."
+  },
+  {
+    "id": "kb-kemitraan-pelatihan",
+    "category": "Kemitraan",
+    "title": "Program Kemitraan, Pelatihan & Kunjungan Riset",
+    "keywords": [
+      "kemitraan",
+      "mitra",
+      "pelatihan",
+      "kursus",
+      "belajar",
+      "kunjungan",
+      "studi",
+      "mahasiswa",
+      "unsil",
+      "kerjasama",
+      "b2b"
+    ],
+    "answer": "Waroeng Jamur Mang Yayat membuka program kemitraan dan edukasi:\n• **Kemitraan Budidaya**: Pasokan rutin baglog berkualitas disertai pendampingan teknis hingga panen.\n• **Pelatihan Budidaya Jamur**: Bimbingan langsung bersama instruktur berpengalaman binaan Dinas Pertanian.\n• **Kunjungan Studi / Magang Riset**: Terbuka untuk mahasiswa (seperti UNSIL dan universitas lain), pelajar SMK Pertanian, dan instansi.\nHubungi WhatsApp: **0821-1991-8783**."
+  },
+  {
+    "id": "kb-kontak-lokasi",
+    "category": "Kontak & Lokasi",
+    "title": "Alamat Kumbung, Jam Buka & Kontak WhatsApp",
+    "keywords": [
+      "alamat",
+      "lokasi",
+      "dimana",
+      "jalan",
+      "buka jam berapa",
+      "jam operasional",
+      "kontak",
+      "nomor wa",
+      "whatsapp",
+      "telepon"
+    ],
+    "answer": "• **Alamat**: Kp. Cicarate / Sindangsuka RT 003/RW 009 (dan RT 01/RW 09), Kelurahan Gununggede, Kecamatan Kawalu, Kota Tasikmalaya, Jawa Barat 46182.\n• **Jam Operasional**: Setiap hari (Senin–Minggu) pukul 09.00–16.00 WIB.\n• **Waktu Panen Segar**: Pukul 05.00–08.00 WIB.\n• **WhatsApp Resmi Owner (Kang Irwan)**: **0821-1991-8783**."
+  }
+];
   let config = {
     botName: 'KANG SUPA',
     greeting: 'Sampurasun. Saya **KANG SUPA**, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan kami.',
@@ -1112,41 +1432,72 @@ function initKangSupaChatbot() {
   }
 
   function findAnswer(query) {
-    const q = query.trim().toLowerCase();
-    const tokens = q.split(/[\s,?.!-]+/).filter(t => t.length > 1);
+    const raw = query.trim();
+    const q = raw.toLowerCase();
+    const tokens = q.split(/[\s,?.!-]+/).filter(t => t.length > 0);
 
     if (tokens.length === 0) {
-      return 'Sampurasun. Silakan ketik pertanyaan seputar budidaya jamur tiram, baglog, produk, atau kemitraan Waroeng Jamur Mang Yayat.';
+      return 'Sampurasun. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan Waroeng Jamur Mang Yayat.';
     }
 
-    // 1. Deteksi Sapaan Umum & Ucapan Terima Kasih
-    const greetings = ['halo', 'hai', 'hello', 'sampurasun', 'pagi', 'siang', 'sore', 'malam', 'assalamualaikum', 'ass', 'kulanuwun'];
-    if (tokens.some(t => greetings.includes(t)) && tokens.length <= 3) {
-      return 'Sampurasun. Saya **KANG SUPA**, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk olahan, atau kemitraan kami.';
+    // 1. Deteksi Sapaan Khusus Sesuai Ketikan Tamu (Hi, Hallo, Allo, Selamat Pagi, Siang, Sore, Malam)
+    // Sesuai instruksi: balas dengan ketikan mereka + " Sampurasun. Saya KANG SUPA, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan kami."
+    const cleanGreeting = q.replace(/[!.?]+$/, '').trim();
+    const isShortQuery = tokens.length <= 4;
+    const hasCoreMushroomKeyword = tokens.some(t => [
+      'jamur', 'baglog', 'kumbung', 'bibit', 'harga', 'beli', 'panen', 'hama', 'nutrisi', 'cara', 'alamat', 'pesan', 'roi'
+    ].includes(t));
+
+    if (isShortQuery && !hasCoreMushroomKeyword) {
+      let matchedGreeting = null;
+
+      if (/^(?:hi|hai|hey|hei)\b/i.test(cleanGreeting)) {
+        matchedGreeting = cleanGreeting.startsWith('hai') ? 'Hai.' : 'Hi.';
+      } else if (/^(?:hallo|halo|hello)\b/i.test(cleanGreeting)) {
+        matchedGreeting = cleanGreeting.startsWith('halo') ? 'Halo.' : 'Hallo.';
+      } else if (/^(?:allo|alo)\b/i.test(cleanGreeting)) {
+        matchedGreeting = 'Allo.';
+      } else if (cleanGreeting.includes('pagi')) {
+        matchedGreeting = cleanGreeting.includes('selamat') ? 'Selamat pagi.' : 'Pagi.';
+      } else if (cleanGreeting.includes('siang')) {
+        matchedGreeting = cleanGreeting.includes('selamat') ? 'Selamat siang.' : 'Siang.';
+      } else if (cleanGreeting.includes('sore')) {
+        matchedGreeting = cleanGreeting.includes('selamat') ? 'Selamat sore.' : 'Sore.';
+      } else if (cleanGreeting.includes('malam')) {
+        matchedGreeting = cleanGreeting.includes('selamat') ? 'Selamat malam.' : 'Malam.';
+      } else if (/^(?:assalamu['’]?alaikum|assalamualaikum|ass)\b/i.test(cleanGreeting)) {
+        matchedGreeting = "Wa'alaikumussalam.";
+      } else if (/^(?:sampurasun)\b/i.test(cleanGreeting)) {
+        matchedGreeting = 'Rampes.';
+      }
+
+      if (matchedGreeting) {
+        return `${matchedGreeting} Sampurasun. Saya **KANG SUPA**, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan kami.`;
+      }
     }
 
     const thanks = ['terima kasih', 'terimakasih', 'makasih', 'hatur nuhun', 'nuhun', 'thanks'];
     if (tokens.some(t => thanks.some(th => q.includes(th)))) {
-      return 'Sami-sami! Senang bisa melayani Anda dengan baik. Silakan tanyakan kembali jika ada hal lain yang ingin Anda ketahui seputar usaha budidaya jamur tiram kami.';
+      return 'Sami-sami! Senang bisa melayani Anda. Silakan tanyakan kembali jika ada hal lain yang ingin Anda ketahui seputar usaha budidaya jamur tiram kami.';
     }
 
     // 2. Deteksi Pertanyaan di Luar Topik (Out of Scope)
     const outOfScopeKeywords = [
-      'presiden', 'politik', 'pemilu', 'partai', 'pilkada', 'menteri', 'dpr', 'uu',
-      'coding', 'python', 'javascript', 'html', 'css', 'php', 'program', 'java', 'react', 'code',
-      'mobil', 'motor', 'bengkel', 'otomotif', 'bensin', 'honda', 'yamaha', 'toyota',
-      'kucing', 'anjing', 'burung', 'lele', 'cupang', 'sapi', 'kambing', 'ayam',
+      'presiden', 'politik', 'pemilu', 'partai', 'pilkada', 'menteri', 'dpr', 'uu', 'negara',
+      'coding', 'python', 'javascript', 'html', 'css', 'php', 'program', 'java', 'react', 'code', 'script',
+      'mobil', 'motor', 'bengkel', 'otomotif', 'bensin', 'honda', 'yamaha', 'toyota', 'daihatsu',
+      'kucing', 'anjing', 'burung', 'lele', 'cupang', 'sapi', 'kambing', 'ayam', 'bebek',
       'game', 'film', 'movie', 'musik', 'lagu', 'sepak bola', 'bola', 'chelsea', 'mu', 'persib',
       'crypto', 'saham', 'bitcoin', 'trading', 'forex', 'pinjol', 'slot', 'judi',
-      'cuaca hari ini', 'ramalan', 'zodiak', 'horoskop', 'pacar', 'jodoh'
+      'cuaca hari ini', 'ramalan', 'zodiak', 'horoskop', 'pacar', 'jodoh', 'cinta'
     ];
     if (tokens.some(t => outOfScopeKeywords.includes(t))) {
-      return 'Mohon maaf, hal tersebut di luar pengetahuan saya. Silakan tanyakan langsung ke Owner Waroeng Jamur Mang Yayat (Kang Irwan) melalui WhatsApp resmi di nomor **0821-1991-8783**.';
+      return 'Mohon maaf, itu diluar pengetahuan saya. Tanyakan lebih lanjut ke WA **0821-1991-8783** langsung kepada Owner Waroeng Jamur Mang Yayat (Kang Irwan).';
     }
 
-    // 3. Pencocokan Relevansi dengan Basis Pengetahuan (Knowledge Base)
+    // 3. Pencocokan Cerdas & Presisi ke Basis Pengetahuan (Knowledge Base)
     if (!knowledge || knowledge.length === 0) {
-      return 'Waroeng Jamur Mang Yayat siap melayani pemesanan jamur tiram, baglog siap berbuah, dan kemitraan. Silakan hubungi WhatsApp resmi di **0821-1991-8783**.';
+      return 'Waroeng Jamur Mang Yayat siap melayani pemesanan jamur tiram segar, baglog siap berbuah, dan kemitraan agribisnis. Silakan hubungi WhatsApp resmi: **0821-1991-8783**.';
     }
 
     let scored = knowledge.map(item => {
@@ -1157,10 +1508,10 @@ function initKangSupaChatbot() {
 
       tokens.forEach(tok => {
         if (tok.length <= 1) return;
-        if (keywords.includes(tok)) score += 12;
-        else if (keywords.some(k => k.includes(tok) || tok.includes(k))) score += 6;
-        if (titleLower.includes(tok)) score += 8;
-        if (answerLower.includes(tok)) score += 1;
+        if (keywords.includes(tok)) score += 16;
+        else if (keywords.some(k => k.includes(tok) || tok.includes(k))) score += 8;
+        if (titleLower.includes(tok)) score += 10;
+        if (answerLower.includes(tok)) score += 2;
       });
 
       return { item, score };
@@ -1168,30 +1519,30 @@ function initKangSupaChatbot() {
 
     scored.sort((a, b) => b.score - a.score);
 
-    if (scored[0] && scored[0].score >= 4) {
+    if (scored[0] && scored[0].score >= 6) {
       return scored[0].item.answer;
     }
 
-    // 4. Verifikasi Konteks Jamur / Pertanian / Waroeng Jamur
+    // 4. Verifikasi Konteks Domain Jamur / Pertanian / Usaha
     const domainTerms = [
-      'jamur', 'tiram', 'baglog', 'kumbung', 'bibit', 'panen', 'miselium',
-      'sterilisasi', 'olahan', 'keripik', 'crispy', 'hama', 'rametuk', 'lalat', 'tikus', 'penyakit',
-      'sprayer', 'kabut', 'fogging', 'rak', 'kemitraan', 'mitra', 'kuliner', 'pasar',
-      'pelatihan', 'kampus', 'mahasiswa', 'unsil', 'tugas', 'wawancara', 'studi',
+      'jamur', 'tiram', 'baglog', 'kumbung', 'bibit', 'panen', 'miselium', 'spora', 'pinhead',
+      'sterilisasi', 'steam', 'inokulasi', 'inkubasi', 'pengukusan', 'serbuk', 'kayu', 'dedak', 'huut', 'kapur', 'dolomit',
+      'olahan', 'keripik', 'crispy', 'hama', 'ulat', 'belatung', 'rametuk', 'lalat', 'tikus', 'penyakit', 'trichoderma',
+      'sprayer', 'kabut', 'fogging', 'rak', 'kemitraan', 'mitra', 'kuliner', 'pasar', 'segmen', '6m',
+      'pelatihan', 'kampus', 'mahasiswa', 'unsil', 'tugas', 'wawancara', 'studi', 'riset',
       'suhu', 'lembab', 'kelembaban', 'modal', 'roi', 'hasil', 'berat', 'omset',
-      'alamat', 'lokasi', 'tempat', 'dimana', 'cicarate', 'kawalu', 'tasikmalaya',
+      'alamat', 'lokasi', 'tempat', 'dimana', 'cicarate', 'sindangsuka', 'kawalu', 'tasikmalaya',
       'kontak', 'wa', 'whatsapp', 'telepon', 'pemilik', 'owner', 'irwan', 'mang yayat',
-      'harga', 'beli', 'pesan', 'order', 'gizi', 'manfaat', 'khasiat'
+      'harga', 'beli', 'pesan', 'order', 'gizi', 'manfaat', 'khasiat', 'protein', 'kolesterol'
     ];
     const isDomainQuery = tokens.some(t => domainTerms.some(d => d.includes(t) || t.includes(d)));
 
     if (!isDomainQuery) {
-      return 'Mohon maaf, hal tersebut di luar pengetahuan saya. Silakan tanyakan langsung ke Owner Waroeng Jamur Mang Yayat (Kang Irwan) melalui WhatsApp resmi di nomor **0821-1991-8783**.';
+      return 'Mohon maaf, itu diluar pengetahuan saya. Tanyakan lebih lanjut ke WA **0821-1991-8783** langsung kepada Owner Waroeng Jamur Mang Yayat (Kang Irwan).';
     }
 
-    // Default response jika konteks budidaya tapi belum ada detail spesifik
-    return 'Terima kasih atas pertanyaannya. Untuk informasi atau konfirmasi teknis lebih lanjut terkait hal tersebut, silakan langsung menghubungi Owner Mang Yayat melalui WhatsApp resmi di **0821-1991-8783**.';
-  }
+    return 'Terima kasih atas pertanyaan Anda. Untuk konsultasi teknis lebih rinci mengenai hal tersebut, silakan hubungi langsung Owner Waroeng Jamur Mang Yayat (Kang Irwan) melalui WhatsApp resmi di nomor **0821-1991-8783**.'
+  };
 
   window.askKangSupa = function(q) {
     if (input) input.value = q;

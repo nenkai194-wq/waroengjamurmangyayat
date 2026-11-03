@@ -23,8 +23,8 @@
     "score": 95
   },
   "roi": {
-    "baglogCost": 2800,
-    "mushroomPricePerKg": 15000,
+    "baglogCost": 3500,
+    "mushroomPricePerKg": 18000,
     "yieldPerBaglogKg": 0.45,
     "operationalCostPerBaglog": 400
   },
@@ -214,42 +214,323 @@
   ],
   "knowledgeBase": [
     {
-      "id": "kb-1793657611550",
-      "category": "Perawatan Budidaya",
-      "title": "Pembuka",
+      "id": "kb-profil-usaha",
+      "category": "Profil Usaha",
+      "title": "Profil & Owner Waroeng Jamur Mang Yayat",
       "keywords": [
-        "Hi",
-        "Hallo",
-        "Selamat Pagi",
-        "Pagi",
-        "Sore",
-        "Siang",
-        "Malam",
-        "Assalamu'alaikum",
-        "Assalamualaikum"
+        "profil",
+        "owner",
+        "pemilik",
+        "irwan",
+        "setiawan",
+        "sejarah",
+        "berdiri",
+        "2019",
+        "tentang",
+        "siapa",
+        "pendiri",
+        "pengelola",
+        "lokasi",
+        "alamat",
+        "tasikmalaya",
+        "kawalu",
+        "sindangsuka",
+        "cicarate"
       ],
-      "answer": "Saya **KANG SUPA**, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan kami."
+      "answer": "Waroeng Jamur Mang Yayat (WJMY) adalah usaha agribisnis jamur tiram yang didirikan pada awal tahun **2019** oleh **Irwan Setiawan (Kang Irwan)**. Berdomisili di Kp. Sindangsuka / Cicarate RT 01/RW 09, Kelurahan Gununggede, Kecamatan Kawalu, Kota Tasikmalaya (WhatsApp: **0821-1991-8783**). Usaha ini mencakup penyediaan bibit indukan (F0-F2), baglog siap berbuah, jamur segar panen fajar, olahan krispi, dan pembinaan kemitraan."
     },
     {
-      "id": "kb-1793657535662",
+      "id": "kb-alasan-usaha",
+      "category": "Edukasi Bisnis",
+      "title": "Alasan Memilih Usaha Budidaya Jamur Tiram",
+      "keywords": [
+        "kenapa",
+        "mengapa",
+        "alasan",
+        "memilih",
+        "keunggulan",
+        "keuntungan",
+        "peluang",
+        "potensi",
+        "usaha jamur",
+        "agribisnis jamur",
+        "pensiun",
+        "tanah",
+        "ruangan"
+      ],
+      "answer": "Alasan utama memilih usaha budidaya jamur tiram:\n• **Higienis & tertutup**: Tidak bersentuhan langsung dengan tanah; pemeliharaan baglog dan panen dilakukan di dalam ruangan tertutup (kumbung).\n• **Bahan baku melimpah & murah**: Memanfaatkan limbah serbuk gergaji kayu, dedak/huut, dan kapur dolomit.\n• **Harga pasar relatif stabil** dan permintaan konsumen tinggi karena lezat bernutrisi.\n• **Persaingan terkontrol**: Membutuhkan ketelatenan dan kesabaran (*rajin, tekun, telaten*).\n• Sangat ideal sebagai **persiapan usaha masa pensiun** maupun bisnis mandiri."
+    },
+    {
+      "id": "kb-3-segmen",
+      "category": "Edukasi Bisnis",
+      "title": "3 Segmen Konsentrasi Usaha Budidaya Jamur Tiram",
+      "keywords": [
+        "segmen",
+        "segmentasi",
+        "3 segmen",
+        "tahapan usaha",
+        "fokus usaha",
+        "pilihan usaha",
+        "kategori",
+        "pemula"
+      ],
+      "answer": "Usaha budidaya jamur tiram terbagi dalam 3 segmen konsentrasi:\n1. **Pembuat Bibit Jamur (F0/PDA, F1, F2)**: Menghasilkan biakan murni di botol kaca dengan alat laboratorium (autoclave/presto, pisau bedah steril, bunsen). Nilai jual tinggi, namun masih ada risiko kegagalan kontaminasi.\n2. **Pembuat Baglog (Media Tanam)**: Memerlukan ruang olah mixer adonan, mesin pres, drum steamer pengukusan, dan ruang inkubasi 25-40 hari.\n3. **Pembuahan & Pemasaran Jamur Segar**: Petani cukup membeli baglog siap panen dan merawatnya di kumbung. **Segmen ini paling minim risiko kegagalan dan sangat direkomendasikan untuk pemula**."
+    },
+    {
+      "id": "kb-kumbung-jamur",
+      "category": "Kumbung & Fasilitas",
+      "title": "Kumbung Jamur & Standar Ukuran Rak",
+      "keywords": [
+        "kumbung",
+        "ruang kumbung",
+        "kandang",
+        "bangunan",
+        "rak",
+        "ukuran rak",
+        "jarak rak",
+        "kontruksi",
+        "pemeliharaan kumbung",
+        "bambu",
+        "paranet"
+      ],
+      "answer": "Kumbung adalah bangunan khusus tempat menyusun baglog agar jamur tumbuh optimal:\n• **Konstruksi**: Dinding bilik bambu/paranet/tembok permanen, atap genteng/rumbia, dan sirkulasi udara terkontrol.\n• **Standar Rak**: Jarak antar tiang rak ±80 cm, jarak antar susunan ambalan 40–50 cm (muat 3–5 baglog tidur), lebar rak 20–25 cm, tinggi maksimal 1,5–2 meter.\n• **Pemeliharaan**: Bersihkan atap dan halaman kumbung berkala, buat parit keliling penahan air hujan, tutup lubang dinding dari serangga luar, dan bersihkan gulma rumput di lantai."
+    },
+    {
+      "id": "kb-komposisi-baglog",
+      "category": "Media Tanam",
+      "title": "Bahan Baku & Formulasi Pembuatan Baglog",
+      "keywords": [
+        "baglog",
+        "komposisi baglog",
+        "resep baglog",
+        "bahan baglog",
+        "campuran",
+        "serbuk kayu",
+        "dedak",
+        "huut",
+        "kapur",
+        "dolomit",
+        "gips",
+        "kadar air"
+      ],
+      "answer": "Komposisi standar media baglog (per 100 kg serbuk kayu):\n• **Serbuk gergaji kayu halus**: 100 kg (diayak seragam tanpa potongan tajam).\n• **Dedak / Bekatul / Huut halus**: 15 kg (sumber nutrisi utama).\n• **Kapur dolomit**: 2 kg & **Gips**: 1 kg (penstabil pH media di kisaran 6–7).\n• **Air bersih**: hingga kadar air 60–65% (uji kepal: digenggam kuat hanya menetes 1 tetes air, saat dibuka kepalan tidak buyar).\nCampuran diaduk merata, dikomposkan 1–3 hari, lalu dipadatkan dalam plastik PP tahan panas (18x35 atau 20x35 cm) dan dipasang cincin leher."
+    },
+    {
+      "id": "kb-sterilisasi-inokulasi",
+      "category": "Teknis Budidaya",
+      "title": "Sterilisasi (Steaming) & Inokulasi Bibit",
+      "keywords": [
+        "sterilisasi",
+        "steam",
+        "pengukusan",
+        "mengukus",
+        "drum steamer",
+        "autoclave",
+        "inokulasi",
+        "tanam bibit",
+        "bibit f2",
+        "pendinginan",
+        "spatula"
+      ],
+      "answer": "• **Sterilisasi (Pengukusan)**: Dilakukan menggunakan drum steamer pada suhu 70–100°C selama 5–8 jam (atau autoclave suhu 121°C tekanan 1 atm selama 4 jam) untuk membunuh bakteri dan spora jamur liar.\n• **Pendinginan**: Baglog didiamkan 8–12 jam hingga suhu turun ke 30–35°C sebelum ditanami bibit.\n• **Inokulasi**: Penanaman ±1 sendok teh bibit F2 steril ke dalam mulut baglog menggunakan spatula steril di dekat api bunsen, lalu mulut baglog ditutup kembali dengan kapas/penutup."
+    },
+    {
+      "id": "kb-inkubasi-suhu",
+      "category": "Perawatan Budidaya",
+      "title": "Masa Inkubasi, Suhu & Kelembapan Ideal",
+      "keywords": [
+        "inkubasi",
+        "miselium",
+        "suhu",
+        "kelembaban",
+        "kelembapan",
+        "berapa lama inkubasi",
+        "tanda putih",
+        "derajat",
+        "cahaya"
+      ],
+      "answer": "• **Fase Inkubasi**: Suhu ruang 22–28°C (kelembaban 50–60%) dalam kondisi gelap/minim cahaya selama 25–45 hari hingga miselium merambat putih tebal merata 100%.\n• **Fase Pembuahan (Tumbuh Jamur)**: Suhu ideal 16–22°C (atau 22–28°C di dataran sedang), kelembaban tinggi 90–95%, dengan pencahayaan pantul 60–70% (tidak terkena sinar matahari langsung).\nJika kelembaban kurang, pinhead akan mengering; jika terlalu basah, tubuh buah akan membusuk."
+    },
+    {
+      "id": "kb-penyiraman",
+      "category": "Perawatan Budidaya",
+      "title": "Teknik Penyiraman Baglog & Kumbung",
+      "keywords": [
+        "siram",
+        "penyiraman",
+        "cara menyiram",
+        "pengkabutan",
+        "mist spray",
+        "kapan menyiram",
+        "berapa kali siram",
+        "air siram"
+      ],
+      "answer": "Teknik penyiraman jamur tiram yang benar:\n• Gunakan air bersih dengan **sistem pengkabutan (*mist spray*)**.\n• Arahkan kabut air ke lantai, dinding kumbung, dan lorong sela-sela baglog untuk menjaga kelembapan 90–95%.\n• **Peringatan**: Jangan menyemprot dengan semburan air kencang langsung ke dalam mulut baglog atau ke tudung jamur muda karena memicu pembusukan.\n• Frekuensi: 2–3 kali sehari (pagi, siang, sore) disesuaikan dengan suhu dan cuaca."
+    },
+    {
+      "id": "kb-ciri-panen",
       "category": "Pemanenan",
-      "title": "Panen",
-      "keywords": [],
-      "answer": "a.\tPengemasan Jamur Segar\nJamur yang sudah dipanen perlu segera untuk dipasarkan karena jamur rentan layu/ rusak pada suhu udara terbuka, namun sebelum dipasarkan kita harus tahu dulu bagaimana perlakuan kita agar supaya jamur tetap segar dan menarik dipandang mata. Adapun yang harus diperhatikan :\n1.\tJamur yg sudah di panen jangan di tumpuk sebelum dikemas (harus digelar)\n2.\tGunakan wadah plastik sesuai kebutuhan/ muatan pemesanan\n3.\tUsahakan kedap udara\n4.\tJangan ditindih/ ditumpuk\n5.\tDll.\nb.\tTeknik Pemasaran Jamur\nc.\tJamur Olahan\n\nPenanganan Pasca Panen\n-\tJamur tiram kebanyakan dijual secara curah dalam bentuk segar sehingga mempunyai kelemahan tidak tahan lama disimpan \n-\tDijual dengan cara dipak ke supermarket, hotel dan restaurant\n-\tDiolah menjadi makanan yang mempunyai nilai tambah lebih seperti dalam bentuk pepes jamur, sate jamur, sop jamur, tumis jamur, dendeng jamur, jamur lapis tepung, kripik jamur, abon jamur, pangsit jamur, dll."
+      "title": "Ciri-Ciri Jamur Tiram Siap Panen",
+      "keywords": [
+        "panen",
+        "ciri siap panen",
+        "kapan panen",
+        "waktu panen",
+        "tanda siap petik",
+        "usia panen",
+        "bentuk jamur"
+      ],
+      "answer": "Ciri-ciri jamur tiram siap dipetik:\n• **Usia**: 3–5 hari setelah pinhead (tunas kecil) muncul.\n• **Batang**: Sudah seukuran jari orang dewasa normal.\n• **Tudung**: Mekar sempurna berdiameter 3–14 cm, tekstur kenyal kokoh, tepi belum keriting atau pecah/menguning.\n• **Warna**: Putih bersih / abu segar dan spora belum beterbangan.\nWaktu panen terbaik adalah waktu fajar (05.00–08.00 WIB) agar jamur tetap segar dan berbobot saat dipasarkan."
     },
     {
-      "id": "kb-1793657487790",
-      "category": "Peluang Usaha",
-      "title": "TEKNIK BUDIDAYA JAMUR TIRAM",
-      "keywords": [],
-      "answer": "Pembibitan Dan Pembuatan Baglog Jamur\n1.\tPembuatan Kumbung\nKumbung adalah sebuah bangunan/ ruangan tempat menyimpan baglog sebagai media tumbuhnya jamur tiram yang terbuat dari bilik bambo, jaring paranet, tembok permanen dll. Didalamnya tersusun rak-rak tempat media tumbuh/ baglog/ log jamur tiram. Ukuran Kumbung bervariasi tergantung dari luas lahan yang dimiliki. Tujuannya untuk menyimpan seluruh baglog sesuai dengan persyaratan tumbuh yang dikehendaki jamur tersebut. Baglog/ log adalah kantong plastik transparan berisi campuran media tumbuh jamur.\nRak dalam Kumbung disusun sedemikian rupa sehingga memudahkan dalam pemeliharan dan sirkulasi udara terjaga. Umumnya jarak antara tiang rak ± 80 cm. Jarak didalam rak 40-50 cm (4 – 5 baglog), lebar rak 20-25 cm, tinggi rak maksimal 1,5-2 m, panjang disesuaikan dengan kondisi ruangan. Bahan-bahan yang diperlukan untuk membuat Kumbung berupa tiang kaso/ bambu, rak-rak, bilik untuk dinding dan atap berupa genteng, asbes atau rumbia. Jumlah dan tinggi rak tergantung pada tinggi ruang pemeliharaan dan jumlah baglog yang akan dipelihara dan dirawat.\n\n2.\tPeralatan/ Perlengkapan Dalam Pembuatan Baglog\nSetelah Kumbung/ ruangan/ kandang sudah ada, peralatan/ perlengkapan yang harus dan wajib disiapkan dalam pembuatan baglog adalah sebagai berikut : \na.\tAlat Sterilisasi, bisa berupa drum, autoclave maupun boiler (steril bak) lengkap dengan kompor.\nb.\tAlat Pengadukan, ayakan, cangkul, sekop, ember, selang.\nc.\tAlat inokulasi, lampu bunsen, masker, jas lab, spatula/ pinset, alkohol/ spritus, hand Sprayer\nd.\tAlat angkut, keranjang/ roda\ne.\tAlat penyiraman\nf.\tAlat Panen\n\n3.\tPembuatan Media Tanam Baglog\nBaglog/ log adalah istilah untuk media jamur kayu yang terdiri dari serbuk gergaji, bekatul/ dedak dan kapur dll. \na.\t Pengayakan \nPengayakan adalah kegiatan memisahkan atau menyaring serbuk kayu gergaji yang besar dan kecil/ halus sehingga didapatkan serbuk kayu gergaji yang halus dan seragam. Tujuannya untuk mendapatkan media tanam yang memiliki kepadatan tertentu tanpa merusak kantong plastik (baglog) dan mendapatkan tingkat pertumbuhan miselia yang merata.\nb.\tPencampuran\nPencampuran serbuk kayu gergaji dengan dedak, kapur dan gips sesuai takaran untuk mendapatkan komposisi media yang merata. Tujuannya menyediakan sumber hara/ nutrisi yang cukup bagi pertumbuhan dan perkemangan jamur tiram sampai siap dipanen. Media untuk pertumbuhan jamur tiram sebaiknya dibuat menyerupai kondisi tempat tumbuh jamur tiram di alam. Adapun komposisi takaranya antara lain :\n-\tSerbuk gergaji 100 kg sebagai media tanam\n-\tDedak/huut 15 kg sebagai sumber makanan tambahan bagi pertumbuhan jamur\n-\tKapur 2kg dan gips 1 kg untuk mendapatkan pH 6-7 media tanam sehingga memperlancar proses pertumbuhan jamur\n-\tSerbuk gergaji yg sudah diayak dicampur dengan bekatul/ dedak/ huut, kapur dan gips. Campuran bahan diaduk merata dan ditambahkan air bersih hingga mencapai kadar air 60-65%, dapat ditandai bila dikepal hanya mengeluarkan satu tetes air dan bila dibuka gumpalan serbuk kayu tidak serta merta pecah. \n-\tBahan yang telah dicampur bisa dikomposkan 1 hari, 3 hari, 7 hari atau langsung dikantongi.\nc.\tPengomposan/ Penimbunan/ Permentasi\nKegiatan menimbun campuran serbuk gergaji kemudian menutupnya secara rapat dengan menggunakan plastic/ karung selama 1 malam. Tujuannya menguraikan senyawa-senayawa kompleks dengan bantuan mikroba agar diperoleh senyawasenyawa kompleks dengan bantuan mikroba agar diperoleh senyawa-senyawa yang lebih sederhana, sehingga lebih mudah dicerna oleh jamur dan memungkinkan pertumbuhan jamur yang lebih baik.\nd.\tPengisian Baglog\nKegiatan memasukan campuran media ke dalam plastik polipropile (PP) dengan kepadatan tertentu agar miselia jamur dapat tumbuh maksimal dan menghasilkan panen yang optimal. Tujuannya menyediakan media tanam bagi bibit jamur. Prosedur pelaksanaan pengisian media kekantong plastik (baglog) antara lain ;\n-\tCampuran serbuk gergaji yang sudah dikompos dimasukan kedalam kantong plastik ukuran 18 x 35, 20 x 35 atau tergantung selera dan kebutuhan.\n-\tPadatkan campuran dengan menggunakan botol atau alat lain.\n-\tUjung plastik disatukan dan dipasang cincin dari potongan paralon/ bambu pada bagian leher plastik sehingga bungkusan akan menyerupai botol.\ne.\tSterilisasi/ steam/ pengukusan\nSterilisasi adalah suatu proses yang dilakukan untuk menonaktifkan mikroba, baik bakteri, kapang, maupun khamir yang dapat menganggu pertumbuhan jamur yang ditanam. Tujuannya mendapatkan serbuk kayu yang steril bebas dari mikroba dan jamur lain yang tidak dikendaki. Sterilisasi dilakukan pada suhu 70° C selama 5 – 8 jam, sedangkan sterilisasi autoclave membutuhkan waktu selama 4 jam, pada suhu121°C, dengan tekanan 1 atm.\nf.\tPendinginan\nProses pendinginan merupakan suatu upaya menurunan suhu media tanam setelah disterilkan agar bibit yang akan dimasukkan ke dalam baglog tidak mati. Pendinginan dilakukan 8 – 12 jam sebelum dilakukan inokulasi. Temperatur yang diinginkan adalah 30 - 35°C.\nProsedur pelaksanaannya antara lain :\n-\tKeluarkan baglog dari drum yang sudah disterilisasikan\n-\tDiamkan didalam ruangan sebelum dilakukan inokulasi (pemberian bibit)\n-\tPendinginan dilakukan hingga temperatur mencapai 30 -35°C\ng.\tInokulasi (Penanaman Bibit)\nInokulasi adalah proses pemindahan sejumlah kecil miselia jamur dari biakan induk kedalam media tanaman yang telah disediakan. Tujuannya adalah menumbuhkan miselia jamur pada media tanam hingga menghasilkan jamur yang siap panen. Prosedur pelaksanaan inokulasi bibit antara lain ;\n-\tPetugas yang akan menginokulasi bibit harus bersih, mencuci tangan dengan alkohol, dan menggunakan pakaian bersih.\n-\tSterilkan spatula menggunakan alkohol 70% dan dibakar.\n-\tBuka sumbatan kapas baglog, buat sedikit lubang pada media tanam dengan menggunakan kayu yang steril yang diruncingkan.\n-\tAmbil sedikit bibit jamur tiram (miselia) ± 1 (satu) sendok teh dan letakkan ke dalam baglog setelah itu sedikit ditekan.\n-\tSelanjutnya media yang telah diisi bibit ditutup dengan kapas/ koran kembali.\n-\tMedia baglog yang telah dinokulasi dibuat hingga 22 - 28º C untk mempercepat pertumbuhan miselium.\nh.\tInkubasi\nInkubasi adalah menyimpan atau menempatkan media tanam yang telah diinokulasi pada kondisi ruang tertentu agar miselia jamur tumbuh. Tujuanya adalah untuk mendapatkan pertumbuhan miselia. Langkah-langkah pelaksanaannya :\n-\tSuhu ruang pertumbuhan miselia jamur antara 28–30 ºC untuk mempercepat pertumbuhan miselium.\n-\tMedia baglog yg telah dinokulasi dipindahkan dalam ruang inkubasi.\n-\tInkubasi dilakukan hingga seluruh permukaan media tumbuh dalam baglog berwarna putih merata setelah 20-45 hari.\n-\tTutup Kumbung serapat mungkin sehingga cahaya matahari minimal, kendalikan suhu ruang Kumbung mencapai 25 – 300C.\ni.\tPemindahan Baglog ke Tempat Budidaya\nKetika masa inkubasi selesai sekitar 30-50 hari (kondisional) yang ditandai baglog sudah full miselium dan terjadi penebalan miselium (putih penuh), maka hal yang perlu dilakukan selanjutnya adalah memindahkan baglog ke tempat budidaya kami menyebutkan tempat produksi. Prosedurnya yang dilaksanakannya :\n-\tPastikan Baglog yg akan dipindahkan sudah full miselium\n-\tBaglog yang telah putih ditumbuhi miselium dipindahkan ke kumbung budidaya/ produksi jamur \n-\tBaglog yang miseliumnya sudah putih dan ada penebalan dibuka cincin bambunya agar jamur bisa tumbuh. \n\n\n\n\nj.\tPenyiraman dan Perawatan\nPenyiraman dilakukan dengan cara penyemprotan atau pengkabutan dengan menggunakan air bersih yang ditujukan pada ruang Kumbung dan media tumbuh jamur, tujuan untuk menjaga kelembaban Kumbung.\n-\tBaglog yang telah dibuka cincin dirawat dengan melakukan penyiraman secara kabut untuk mempercepat pertumbuhan pinhead jamur\n-\tHal yang terpenting harus diperhatikan dalam kumbung adalah menjaga suhu dan kelembaban yang dibutuhkan jamur\n-\tApabila kelembaban kurang, pinhead mati dan jika terlalu lembab jamur menjadi basah\nk.\tPengendalian Hama dan Penyakit\nPada tumbuhan sejenis jamur sebenarnya hampir tidak ditemukan hama yang bersifat merusak atau memakan tubuh buah jamur, adapun banyak ditemui pada jamur adalah sejenis ulat atau belatung dan itu pun hanya akan muncul dari jamur itu sendiri disaat jamur tumbuh maksimal dan membusuk.\nTetapi pada jamur tiram yang dibudidayakan menurut para petani sering ditemukannya hama belatung yang timbul dari media tanam atau biasa disebut baglog, lalu hama lain yang tertarik dengan jamur tiram adalah lalat, dan pada jenis jamur tiram putih biasanya ditemukan juga hama berupa nyamuk, namun sebenarnya nyamuk dan lalat bukanlah hama yang merusak tubuh buah namun jika terlalu banyak akan meninggalkan bekas sehingga jamur tiram akan bercak hitam. Sedangkan hama yang merusak jamur hampir tidak ada selain belatung itupun hanya akan timbul apabila terlambat dipetik, dan belatung dan rayap yang timbul pada media tanam (baglog) timbul karena media tanam (baglog) mengandung serbuk gergaji (serbuk kayu)\nl.\tPengaturan Suhu Ruangan\nMembuka dan menutup pintu atau jendela (ventilasi) Kumbung berguna untuk mengatur suhu dan kelembaban agar sesuai dengan kebutuhan yang ditentukan. Tujuanya untuk mendapatkan pertumbuhan jamur yang optimal. Agar pertumbuhan jamur optimal diperlukan suhu ruangan dalam Kumbung 28 - 30°C dan kelembaban sebesar 50 - 60% pada saat inkubasi.\nSedangkan suhu pada pembentukan tubuh buah sampai panen berkisar antara 22 -28 °C dengan kelembaban 90 – 95%. Apabila kelembaban kurang, maka substrat tanaman akan mengering.\nm.\tKebersihan Kumbung\nSelain pengaturan suhu kumbung kebersihan kumbung produksi jamur juga menentukan kualitas jamur. Misal lantai kumbung berupa tanah maka kita harus sering mencabut rumput liar yang tumbuh pada lantai kumbung, karena dengan adanya tumbuhan lain bisa mengundang hama berupa kutu/ kumbang/ kepik. \n\n\n\n\n\nn.\tPemanenan\nDari sekian lama proses dan waktu pembibitan jamur tiram, masa pemanenan adalah masa yang ditunggu tunggu petani jamur. Usia ideal untuk dilakukan pemanenan sekitar 3-5 hari setelah pinhead muncul. Berikut adalah Ciri-ciri jamur tiram yang sudah siap dipanen, diantarnya :\n-\tTudung belum keriting \n-\tWarna belum pudar\n-\tSpora belum dilepaskan\n-\tTekstur masih kokoh dan lentur\nHal-hal yang perlu diperhatikan dalam pemanenan adalah:\n-\tPanen dilakukan dengan mencabut\n-\tTanpa menyisakan bagian jamur, bersih dan tidak berceceran\n-\tJamur dipanen setelah 3 hari muncul pinhead, ukuran jamur cukup dan jamur tidak terlalu basah, hal ini akan mempengaruhi harga dipasar\n-\tBaglog yang telah dipanen dibersihkan dari sisa-sisa jamur yang masih menempel pada baglog supaya tidak mengundang hama dan penyakit\n-\tJamur yang telah dipanen dibersihkan kemudian diwadahi dalam kantong plastic ukuran 3 kg, 5 kg, 10 kg dan siap dipasarkan.\no.\tPaska Panen\nSetelah jamur tiram dipanen, baglog jamur jangan dibiarkan begitu saja. Baglog jamur harus dirawat supaya pin head jamur cepat muncul kembali. Adapun perilaku yang harus dilakukan adalah:\n1.\tPastikan akar jamur yg sudah dipanen tercabut semua\n2.\tKerik/ potong tipis baglog yg sudah di panen\n3.\tSiram dengan POC khusus jamur tiram\n4.\tSiram dengan hormonik\n5.\tSiram dengan pestisida organik (sangat tidak disarankan obat kimia)\n6.\tDll.\nDengan perlakuan tersebut maka pinhead jamur akan cepat muncul 4-7 hari kedepan, dan akan cepat panen kembali."
+      "id": "kb-teknik-panen-pasca",
+      "category": "Pemanenan",
+      "title": "Teknik Petik & Perawatan Pasca Panen",
+      "keywords": [
+        "cara panen",
+        "mencabut",
+        "pasca panen",
+        "sisa akar",
+        "kerik baglog",
+        "nutrisi baglog",
+        "poc",
+        "hormon",
+        "siklus panen",
+        "berapa kali panen"
+      ],
+      "answer": "• **Cara Panen**: Cabut seluruh rumpun jamur hingga ke pangkal akar terdalam. Jangan dipotong menyisakan tangkai di dalam mulut baglog karena akan membusuk dan mengundang ulat/belatung.\n• **Perawatan Pasca Panen**: Bersihkan sisa akar, kerik tipis permukaan media di mulut baglog, lalu semprotkan nutrisi POC organik atau hormonik perangsang.\n• **Hasil**: Pinhead baru akan tumbuh kembali dalam 4–7 hari. Satu baglog produktif dapat dipanen 6–10 kali selama masa produktif 3–4 bulan."
     },
     {
-      "id": "kb-1793657406631",
-      "category": "Peluang Usaha",
-      "title": "Tentang Jamur Tiram",
-      "keywords": [],
-      "answer": "Jamur tiram (Pleurotus ostreatus) adalah jamur pangan dari kelompok Basidiomycota dan termasuk kelas Homobasidiomycetes dengan ciri-ciri umum tubuh buah berwarna putih hingga krem dan tudungnya berbentuk setengah lingkaran mirip cangkang tiram dengan bagian tengah agak cekung. Jamur tiram masih satu kerabat dengan Pleurotus eryngii dan sering dikenal dengan sebutan King Oyster Mushroom. \n\n\nKARAKTERISTIK\nTubuh buah jamur tiram memiliki tangkai yang tumbuh menyamping (bahasa Latin: pleurotus) dan bentuknya seperti tiram (ostreatus) sehingga jamur tiram mempunyai nama binomial Pleurotus ostreatus. Bagian tudung dari jamur tersebut berubah warna dari hitam, abu-abu, coklat, hingga putih, dengan permukaan yang hampir licin, diameter 5–20 cm yang bertepi tudung mulus sedikit berlekuk. Selain itu, jamur tiram juga memiliki spora berbentuk batang berukuran 8-11×3-4μm serta miselia berwarna putih yang bisa tumbuh dengan cepat.\n\nDi alam bebas, jamur tiram bisa dijumpai hampir sepanjang tahun di hutan pegunungan daerah yang sejuk. Tubuh buah terlihat saling bertumpuk di permukaan batang pohon yang sudah melapuk atau pokok batang pohon yang sudah ditebang karena jamur tiram adalah salah satu jenis jamur kayu. Untuk itu, saat ingin membudidayakan jamur ini, substrat yang dibuat harus memperhatikan habitat alaminya. Media yang umum dipakai untuk membiakkan jamur tiram adalah serbuk gergaji kayu yang merupakan limbah dari penggergajian kayu.\n\nSecara alami, jamur tiram Pleurotus ditemukan di hutan dibawah pohon berdaun lebar atau di bawah tanaman berkayu. Jamur tiram tidak memerlukan cahaya matahari yang banyak, di tempat terlindung miselium jamur akan tumbuh lebih cepat daripada di tempat yang terang dengan cahaya matahari berlimpah. Pertumbuhan misellium akan tumbuh dengan cepat dalam keadaan gelap/tanpa sinar. Pada masa pertumbuhan misellium, jamur tiram sebaiknya ditempatkan dalam ruangan yang gelap, tetapi pada masa pertumbuhan badan buah memerlukan adanya rangsangan sinar. Pada tempat yang sama sekali tidak ada cahaya badan buah tidak dapat tumbuh, oleh karena itu pada masa terbentuknya badan buah pada permukaan media harus mulai mendapat sinar dengan intensitas penyinaran 60 - 70 %.\n\nPada budidaya jamur tiram suhu udara memegang peranan yang penting untuk mendapatkan pertumbuhan badan buah yang optimal. Pada umumnya suhu yang optimal untuk pertumbuhan jamur tiram, dibedakan dalam dua fase yaitu fase inkubasi yang memerlukan suhu udara berkisar antara 22 - 28 OC dengan kelembapan 60 - 70 % dan fase pembentukan tubuh buah memerlukan suhu udara antara 16 - 22 OC. \n\nTingkat keasaman media juga sangat berpengaruh terhadap pertumbuhan jamur tiram. Apabila pH terlalu rendah atau terlalu tinggi maka pertumbuhan jamur akan terhambat, bahkan mungkin akan tumbuh jamur lain yang akan mergganggu pertumbuhan jamur tiram itu sendiri. Keasaman pH media perlu diatur antara pH 6 - 7 dengan menggunakan kapur (Calsium carbonat). Kondisi di atas lebih mudah dicapai di daerah dataran tinggi sekitar 700–800 m dpl. Kemungkinan budidaya jamur di dataran rendah tidaklah mustahil asalkan iklim ruang penyimpanan dapat diatur dan disesuaikan dengan keperluan jamur. \n\n\nKANDUNGAN GIZI DAN MANFAATNYA\nBerdasarkan penelitian Sunan Pongsamart, biochemistry, Faculty of Pharmaceutical Universitas Chulangkorn, jamur tiram mengandung protein, air, kalori, karbohidrat, dan sisanya berupa serat zat besi, kalsium, vitamin B1, vitamin B2, dan vitamin C. Jamur tiram (Pleurotus ostreatus) merupakan bahan makanan bernutrisi dengan kandungan protein tinggi, kaya vitamin dan mineral, rendah karbohidrat, lemak dan kalori. Jamur ini memiliki kandungan nutrisi seperti vitamin, fosfor, besi, kalsium, karbohidrat, dan protein. Untuk kandungan proteinnya, lumayan cukup tinggi, yaitu sekitar 10,5-30,4%.\n\nKomposisi dan kandungan nutrisi setiap 100 gram jamur tiram adalah 367 kalori, 10,5-30,4 persen protein, 56,6 persen karbohidrat, 1,7-2,2 persen lemak, 0.20 mg thiamin, 4.7-4.9 mg riboflavin, 77,2 mg niacin, dan 314.0 mg kalsium. Kalori yang dikandung jamur ini adalah 100 kj/100 gram dengan 72 persen lemak tak jenuh. Serat jamur sangat baik untuk pencernaan. Kandungan seratnya mencapai 7,4- 24,6 persen sehingga cocok untuk para pelaku diet.  Kandungan gizi jamur tiram menurut Direktorat Jenderal Hortikultura Departemen Pertanian. Protein rata-rata 3.5 – 4 % dari berat basah. Berarti dua kali lipat lebih tinggi dibandingkan asparagus dan kubis. Jika dihitung berat kering. Kandungan proteinnya 10,5-30,4%. Sedangkan beras hanya 7.3%, gandum 13.2%, kedelai 39.1%, dan susu sapi 25.2%.\n\nJamur tiram juga mengandung 9 macam asam amino yaitu lisin, metionin, triptofan, threonin, valin, leusin, isoleusin, histidin, dan fenilalanin. 72%\nLemak dalam jamur tiram adalah asam lemak tidak jenuh sehingga aman dikonsumsi baik yang menderita kelebihan kolesterol (hiperkolesterol) maupun gangguan metabolisme lipid lainnya. 28% asam lemak jenuh serta adanya semacam polisakarida kitin di dalam jamur tiram diduga menimbulkan rasa enak. Jamur tiram juga mengandung vitamin penting, terutama vitamin B, C dan D. vitamin B1 (tiamin), vitamin B2 (riboflavin), niasin dan provitamin D2 (ergosterol), dalam jamur tiram cukup tinggi. Mineral utama tertinggi adalah Kalium, Fosfor, Natrium, Kalsium, dan Magnesium. Mineral utama tertinggi adalah: Zn, Fe, Mn, Mo, Co, Pb. Konsentrasi K, P, Na, Ca dan Me mencapai 56-70% dari total abu dengan kadar K mencapai 45%. Mineral mikroelemen yang bersifat logam dalam jarum tiram kandungannya rendah, sehingga jamur ini aman dikonsumsi setiap hari. \n\nJamur tiram juga memiliki berbagai manfaat yaitu sebagai makanan, menurunkan kolesterol, sebagai antibakterial dan antitumor, serta dapat menghasilkan enzim hidrolisis dan enzim oksidasi. Selain itu, jamur tiram juga dapat berguna dalam membunuh nematode. Jamur tiram ini memiliki manfaat kesehatan diantaranya, dapat mengurangi kolesterol dan jantung lemah serta beberapa penyakit lainnya. Jamur ini juga dipercaya mempunyai khasiat obat untuk berbagai penyakit seperti penyakit lever, diabetes, anemia.\nSelain itu jamur tiram juga dapat bermanfaat sebagai antiviral dan antikanker serta menurunkan kadar kolesterol. Di samping itu, jamur tiram juga dipercaya mampu membantu penurunan berat badan karena berserat tinggi dan membantu pencernaan. Jamur tiram ini mengandung senyawa pleuran yang berkhasiat sebagai antitumor, menurunkan kolesterol, serta bertindak sebagai antioksidan. Adanya polisakarida, khususnya Beta-D-glucans pada jamur tiram mempunyai efek positif sebagai antitumor, antikanker, antivirus (termasuk AIDS), melawan kolesterol, antijamur, antibakteri, dan dapat meningkatkan sistem imun. Pada jamur tiram, produk ini disebut sebagai plovastin yang di pasaran dikenal sebagai suplemen penurun kolesterol (komponen aktifnya statin yang baik untuk menghambat metabolisme kolesterol di dalam tubuh manusia). \n\nDilihat dari kandungan gizi yang terdapat dalam jamur tiram maka bahan ini termasuk aman untuk dikonsumsi. Adanya serat yaitu lignoselulosa baik untuk pencernaan. USDA (United States Drugs and Administration) yang melakukan penelitian pada tikus menunjukkan bahwa dengan pemberian menu jamur tiram selama 3 minggu akan menurunkan kadar kolesterol dalam serum hingga 40 % dibandingkan dengan tikus yang tidak diberi pakan yang mengandung jamur tiram. Sehingga mereka berpendapat bahwa jamur tiram dapat menurunkan kadar kolesterol pada penderita hiperkolesterol. Di Jepang saat ini sedang diteliti potensi jamur tiram sebagai bahan makanan yang dapat mencegah timbulnya tumor. \n\n\nBUDIDAYA JAMUR\nDi alam bebas, jamur tiram bisa dijumpai hampir sepanjang tahun di hutan pegunungan daerah yang sejuk. Tubuh buah terlihat saling bertumpuk di permukaan batang pohon yang sudah melapuk atau pokok batang pohon yang sudah ditebang karena jamur tiram adalah salah satu jenis jamur kayu. Untuk itu, saat ingin membudidayakan jamur ini, substrat yang dibuat harus memperhatikan habitat alaminya. Dalam budidaya jamur tiram dapat digunakan substrat, seperti kompos serbuk gergaji kayu, ampas tebu atau sekam. \n\nHal yang perlu diperhatikan dalam budi daya jamur tiram adalah faktor ketinggian dan persyarataan lingkungan, sumber bahan baku untuk substrat tanam dan sumber bibit. Miselium dan tubuh buahnya tumbuh dan berkembang baik pada suhu 26-30 °C. Jamur tiram (Pleurotus ostreatus) mulai dibudidayakan pada tahun 1900. Budidaya jamur ini tergolong sederhana. Jamur tiram biasanya dipeliharan dengan media tanam serbuk gergaji steril yang dikemas dalam kantung plastik. \n\nSelain jerami, media lain yang dapat digunakan seperti media serbuk gergaji yang mengandung selulosa, lignin, pentosan, zat ekstraktif, abu, jerami padi, media limbah kapas, alang-alang, daun pisang, tongkol jagung, klobot jagung, gabah padi, dan lain sebagainya. Tetapi, tetap saja pertumbuhan yang paling baik ada di media serbuk gergaji dan merang. Penyebabnya adalah karena jumlah lignoselulosa, lignin, dan serat pada serbuk gergaji dan merang memang lebih tinggi.\n\n\nHAMA PADA JAMUR TIRAM \nPada tumbuhan sejenis jamur sebenarnya hampir tidak ditemukan hama yang bersifat merusak atau memakan tubuh buah jamur, adapun banyak ditemui pada jamur adalah sejenis ulat atau belatung dan itu pun hanya akan muncul dari jamur itu sendiri disaat jamur tumbuh maksimal dan membusuk.\nTetapi pada jamur tiram yang dibudidayakan menurut para petani sering ditemukannya hama belatung yang timbul dari media tanam atau biasa disebut baglog, lalu hama lain yang tertarik dengan jamur tiram adalah lalat, dan pada jenis jamur tiram putih biasanya ditemukan juga hama berupa nyamuk, namun sebenarnya nyamuk dan lalat bukanlah hama yang merusak tubuh buah namun jika terlalu banyak akan meninggalkan bekas sehingga jamur tiram akan bercak hitam. Sedangkan hama yang merusak jamur hampir tidak ada selain belatung itupun hanya akan timbul apabila terlambat dipetik, dan belatung dan rayap yang timbul pada media tanam (baglog) timbul karena media tanam (baglog) mengandung serbuk gergaji (serbuk kayu)\n\n\nPEMANENAN\nJamur tiram bisa dipanen yakni setelah 30-50 hari dari masa inkubasi. Usia ideal untuk dilakukan pemanenan sekitar 3-5 hari setelah pinhead muncul. Adapun kriteria jamur yang sudah siap dipanen adalah :\n1.\tJamur berwarna putih belum memudar,\n2.\tSudah merekah,\n3.\tTidak busuk/ dalam keadaan segar, \n4.\tTudung belum keriting/ pecah biasanya berukuran 3-14 cm\n5.\tTekstur masih kokoh dan lentur.\n\nJamur tiram dapat dipanen berkali-kali dengan rentang waktu 7-14 hari. Pemanenan dilakukan dengan cara mencabut seluruh rumpun jamur yang ada hingga akar-akarnya. Apabila ada bagian jamur yang tertinggal akan mengakibatkan bagian tersebut membusuk sehingga mengakibatkan media mengalami kerusakan. Pemanenan dapat dilakukan sampai baglog tidak mampu memproduksi jamur secara optimal sesuai dengan kriteria panen atau sampai 6-10 kali panen."
+      "id": "kb-hama-penyakit",
+      "category": "Hama & Penyakit",
+      "title": "Hama, Penyakit & Pengendalian Organik",
+      "keywords": [
+        "hama",
+        "penyakit",
+        "ulat",
+        "belatung",
+        "lalat",
+        "nyamuk",
+        "kepik",
+        "rametuk",
+        "jamur hijau",
+        "trichoderma",
+        "jamur liar",
+        "obat kimia",
+        "pestisida"
+      ],
+      "answer": "• **Hama Umum**: Belatung/ulat (muncul jika panen terlambat atau ada sisa akar membusuk), nyamuk kebon, rametuk, lalat, kepik terbang, dan rayap.\n• **Penyakit/Kontaminasi**: Jamur hijau (*Trichoderma*), jamur oranye/karet, dan jamur susu.\n• **Pengendalian**: **Sangat tidak disarankan memakai obat kimia sintetis**. Gunakan pestisida nabati/organik, pasang jaring kasa/paranet pada ventilasi, jaga sanitasi lantai, serta segera pisahkan/buang baglog yang terkontaminasi parah."
+    },
+    {
+      "id": "kb-gizi-khasiat",
+      "category": "Edukasi Produk",
+      "title": "Kandungan Gizi, Manfaat & Khasiat Kesehatan",
+      "keywords": [
+        "gizi",
+        "nutrisi",
+        "manfaat",
+        "khasiat",
+        "kesehatan",
+        "protein",
+        "kolesterol",
+        "diet",
+        "vitamin",
+        "kanker",
+        "obat"
+      ],
+      "answer": "Jamur tiram adalah sumber nutrisi super (*superfood*):\n• **Protein Tinggi**: Mengandung 10,5%–30,4% protein nabati (2 kali lebih tinggi dari asparagus dan kubis, jauh di atas beras).\n• **9 Asam Amino Esensial**: Kaya asam amino lengkap yang dibutuhkan tubuh manusia.\n• **Kaya Serat & Rendah Lemak**: Mengandung 72% asam lemak tak jenuh, aman dan efektif untuk diet sehat.\n• **Khasiat Medis**: Mengandung senyawa *pleuran*, *Beta-D-glucan*, dan efek statin alami (*plovastin*) yang terbukti klinis membantu menurunkan kolesterol, meningkatkan daya tahan tubuh, serta memiliki sifat antitumor dan antikanker."
+    },
+    {
+      "id": "kb-manajemen-6m",
+      "category": "Manajemen Usaha",
+      "title": "Manajemen Agribisnis 6M Waroeng Jamur",
+      "keywords": [
+        "manajemen",
+        "6m",
+        "man",
+        "money",
+        "machine",
+        "material",
+        "market",
+        "methods",
+        "sop",
+        "pengelolaan"
+      ],
+      "answer": "Penerapan 6M dalam budidaya jamur tiram:\n• **Man (Manusia)**: Tenaga kerja teliti, tekun, dan disiplin SOP.\n• **Money (Modal/Uang)**: Pengelolaan modal kerja, perhitungan cashflow, dan simulasi ROI.\n• **Machine (Peralatan)**: Mesin mixer, alat pres baglog, drum steamer, dan sprayer pengkabut.\n• **Material (Bahan)**: Kualitas serbuk kayu, bibit unggul F0-F2 teruji, dan dedak murni.\n• **Market (Pasar)**: Saluran pasokan pasar tradisional, restoran, reseller, hingga konsumen akhir.\n• **Methods (Metode/SOP)**: Prosedur operasional terstandar dari inokulasi hingga penanganan pasca panen."
+    },
+    {
+      "id": "kb-pemasaran-olahan",
+      "category": "Pemasaran",
+      "title": "Teknik Pemasaran & Diversifikasi Produk Olahan",
+      "keywords": [
+        "pemasaran",
+        "jual jamur",
+        "strategi",
+        "pasar",
+        "target pasar",
+        "olahan",
+        "keripik",
+        "krispi",
+        "abon",
+        "nugget",
+        "kuliner"
+      ],
+      "answer": "Strategi pemasaran Waroeng Jamur Mang Yayat:\n• **Jamur Segar**: Pasokan subuh ke pasar induk, pedagang sayur keliling, rumah makan, dan hotel.\n• **Produk Olahan Bernilai Tambah**: Mengolah jamur menjadi keripik jamur crispy rendah minyak (*spinner*), abon jamur, dan camilan sehat.\n• **Paket Edukasi & Kemitraan**: Penjualan paket kumbung mini rumahan, bibit botol kultur, dan baglog siap berbuah bagi pembudidaya baru."
+    },
+    {
+      "id": "kb-katalog-harga",
+      "category": "Produk & Harga",
+      "title": "Daftar Produk & Harga Resmi",
+      "keywords": [
+        "produk",
+        "katalog",
+        "harga",
+        "jual",
+        "beli",
+        "pesan",
+        "order",
+        "biaya",
+        "baglog berapa",
+        "jamur sekilo"
+      ],
+      "answer": "Daftar produk resmi Waroeng Jamur Mang Yayat:\n1. **Jamur Tiram Putih Segar Grade A**: Rp 16.000 / kg (panen fajar 05.00 WIB, segar tanpa bahan kimia).\n2. **Baglog Jamur Siap Berbuah**: Rp 3.500 / baglog (miselium 90–100% tebal, siap tumbuh).\n3. **Keripik Jamur Tiram Crispy**: Rp 15.000 / pouch (renyah gurih, ditiriskan mesin spinner).\n4. **Paket Kumbung Mini Edukasi Rumahan**: Rp 55.000 / paket (isi 5 baglog + sprayer kabut mini).\n5. **Bibit Murni Jamur F0, F1, F2**: Hubungi langsung untuk stok kultur botol.\nPemesanan via WhatsApp: **0821-1991-8783**."
+    },
+    {
+      "id": "kb-kemitraan-pelatihan",
+      "category": "Kemitraan",
+      "title": "Program Kemitraan, Pelatihan & Kunjungan Riset",
+      "keywords": [
+        "kemitraan",
+        "mitra",
+        "pelatihan",
+        "kursus",
+        "belajar",
+        "kunjungan",
+        "studi",
+        "mahasiswa",
+        "unsil",
+        "kerjasama",
+        "b2b"
+      ],
+      "answer": "Waroeng Jamur Mang Yayat membuka program kemitraan dan edukasi:\n• **Kemitraan Budidaya**: Pasokan rutin baglog berkualitas disertai pendampingan teknis hingga panen.\n• **Pelatihan Budidaya Jamur**: Bimbingan langsung bersama instruktur berpengalaman binaan Dinas Pertanian.\n• **Kunjungan Studi / Magang Riset**: Terbuka untuk mahasiswa (seperti UNSIL dan universitas lain), pelajar SMK Pertanian, dan instansi.\nHubungi WhatsApp: **0821-1991-8783**."
+    },
+    {
+      "id": "kb-kontak-lokasi",
+      "category": "Kontak & Lokasi",
+      "title": "Alamat Kumbung, Jam Buka & Kontak WhatsApp",
+      "keywords": [
+        "alamat",
+        "lokasi",
+        "dimana",
+        "jalan",
+        "buka jam berapa",
+        "jam operasional",
+        "kontak",
+        "nomor wa",
+        "whatsapp",
+        "telepon"
+      ],
+      "answer": "• **Alamat**: Kp. Cicarate / Sindangsuka RT 003/RW 009 (dan RT 01/RW 09), Kelurahan Gununggede, Kecamatan Kawalu, Kota Tasikmalaya, Jawa Barat 46182.\n• **Jam Operasional**: Setiap hari (Senin–Minggu) pukul 09.00–16.00 WIB.\n• **Waktu Panen Segar**: Pukul 05.00–08.00 WIB.\n• **WhatsApp Resmi Owner (Kang Irwan)**: **0821-1991-8783**."
     }
   ],
   "chatbotConfig": {
