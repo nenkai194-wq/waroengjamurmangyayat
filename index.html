@@ -142,14 +142,13 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <!-- Custom CSS (Adopsi Ladang Lima & Cokelat Tanah Elegan) -->
-  <link rel="stylesheet" href="assets/css/style.css?v=2.3">
+  <link rel="stylesheet" href="assets/css/style.css?v=2.4">
 </head>
-<body class="bg-[#FBF9F5] text-[#162419] antialiased selection:bg-harvest-500 selection:text-stone-900 min-h-screen flex flex-col justify-between">
+<body class="bg-[#FBF9F5] text-[#162419] antialiased selection:bg-harvest-500 selection:text-stone-900 min-h-screen flex flex-col">
 
-  <div>
-    <!-- =========================================================================
-         1. TOP STRIP INFORMASI RESMI PERUSAHAAN (RUNNING TEXT / MARQUEE)
-         ========================================================================= -->
+  <!-- =========================================================================
+       1. TOP STRIP INFORMASI RESMI PERUSAHAAN (RUNNING TEXT / MARQUEE)
+       ========================================================================= -->
     <aside aria-label="Informasi Perusahaan" class="bg-[#140B07] text-[#D8CCC1] text-xs py-2 border-b border-[#362217] overflow-hidden select-none relative z-50">
       <div class="running-text-track flex items-center">
         <!-- Content 1 -->
@@ -203,7 +202,7 @@
     <!-- =========================================================================
          2. HEADER NAVIGASI DENGAN WARNA COKELAT TANAH ELEGAN PENUH & KONTEN PROPORSIONAL
          ========================================================================= -->
-    <header class="sticky top-0 z-40 bg-[#24160F] border-b border-[#3D261A] transition-all duration-300 shadow-[0_8px_30px_rgba(20,12,8,0.55)]" id="mainNavbar">
+    <header class="sticky top-0 z-50 bg-[#24160F] border-b border-[#3D261A] transition-all duration-300 shadow-[0_8px_30px_rgba(20,12,8,0.55)]" id="mainNavbar">
       <div class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between gap-3">
         <!-- Kiri: Logo Resmi Waroeng Jamur Mang Yayat (Proporsional di Semua Perangkat) -->
         <div class="flex items-center shrink-0">
@@ -307,7 +306,7 @@
     <!-- =========================================================================
          KONTEN UTAMA: HALAMAN MANDIRI BERDASARKAN MENU (PAGE VIEWS)
          ========================================================================= -->
-    <main id="mainContent">
+    <main id="mainContent" class="flex-grow">
 
       <!-- =====================================================================
            HALAMAN 1: BERANDA (DENGAN 3 SLIDER HERO BANNER & SAMBUTAN)
@@ -1550,7 +1549,6 @@
       </div>
 
     </main>
-  </div>
 
   <!-- =========================================================================
        FOOTER KORPORAT RESMI (Selalu Muncul di Bawah)
@@ -1736,6 +1734,6 @@
   </script>
 
   <!-- Skrip JavaScript Utama -->
-  <script src="assets/js/main.js?v=3.6"></script>
+  <script src="assets/js/main.js?v=3.7"></script>
 </body>
 </html>

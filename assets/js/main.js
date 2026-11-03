@@ -274,6 +274,21 @@ function initNavbar() {
   if (closeMobileMenuBtn) closeMobileMenuBtn.addEventListener('click', closeMenu);
   if (mobileBackdrop) mobileBackdrop.addEventListener('click', closeMenu);
   navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+  // Efek Sticky Navbar Saat Digulir (Scroll) agar Menu Utama Selalu Terlihat Elegan
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    const handleScroll = () => {
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollY > 15) {
+        navbar.classList.add('navbar-scrolled');
+      } else {
+        navbar.classList.remove('navbar-scrolled');
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+  }
 }
 
 // =========================================================================
