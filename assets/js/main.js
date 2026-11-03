@@ -984,6 +984,27 @@ function initKangSupaChatbot() {
     "answer": "Waroeng Jamur Mang Yayat (WJMY) adalah usaha agribisnis jamur tiram yang didirikan pada awal tahun **2019** oleh **Irwan Setiawan (Kang Irwan)**. Berdomisili di Kp. Sindangsuka / Cicarate RT 01/RW 09, Kelurahan Gununggede, Kecamatan Kawalu, Kota Tasikmalaya (WhatsApp: **0821-1991-8783**). Usaha ini mencakup penyediaan bibit indukan (F0-F2), baglog siap berbuah, jamur segar panen fajar, olahan krispi, dan pembinaan kemitraan."
   },
   {
+    "id": "kb-belajar-pemula",
+    "category": "Edukasi Bisnis",
+    "title": "Langkah Awal & Panduan Belajar Budidaya Jamur Tiram untuk Pemula",
+    "keywords": [
+      "belajar",
+      "mulai",
+      "memulai",
+      "pemula",
+      "langkah awal",
+      "tahapan",
+      "cara memulai",
+      "panduan",
+      "tahap awal",
+      "ingin belajar",
+      "belajar budidaya",
+      "cara budidaya",
+      "langkah budidaya"
+    ],
+    "answer": "Bagi Anda yang ingin mulai belajar budidaya jamur tiram, berikut 5 langkah strategis sesuai materi pembinaan Waroeng Jamur Mang Yayat:\n1. **Tentukan Segmen Usaha**: Untuk pemula, sangat direkomendasikan memilih **Segmen 3 (Pembuahan Jamur Segar)** dengan membeli baglog siap berbuah. Segmen ini minim risiko kegagalan dan perputaran modalnya cepat.\n2. **Cari Guru / Mentor Berpengalaman**: Belajar dan sharing knowledge langsung dengan praktisi. Di Waroeng Jamur Mang Yayat, kami membuka pembinaan dan konsultasi gratis bagi petani mitra.\n3. **Siapkan Sarana Kumbung**: Siapkan ruangan bersih berventilasi dengan rak standar (jarak antar tiang ±80 cm, jarak ambalan 40–50 cm muat 3–5 baglog tidur).\n4. **Kuasai SOP Perawatan**: Jaga suhu ruang 16–28°C, kelembapan 90–95% lewat penyiraman kabut (*mist spray*), dan cabut jamur bersih hingga ke akar saat tudung mekar 3–5 hari pasca pinhead.\n5. **Tentukan Target Pasar**: Mulai dari tetangga sekitar, pedagang sayur pasar, warung makan, resto, hingga reseller.\n\nUntuk mengikuti pelatihan langsung atau memesan baglog percontohan untuk belajar di rumah, silakan hubungi WhatsApp resmi di **0821-1991-8783**."
+  },
+  {
     "id": "kb-alasan-usaha",
     "category": "Edukasi Bisnis",
     "title": "Alasan Memilih Usaha Budidaya Jamur Tiram",
@@ -1434,21 +1455,21 @@ function initKangSupaChatbot() {
   function findAnswer(query) {
     const raw = query.trim();
     const q = raw.toLowerCase();
+    const cleanGreeting = q.replace(/[!.?]+$/, '').trim();
     const tokens = q.split(/[\s,?.!-]+/).filter(t => t.length > 0);
 
     if (tokens.length === 0) {
       return 'Sampurasun. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan Waroeng Jamur Mang Yayat.';
     }
 
-    // 1. Deteksi Sapaan Khusus Sesuai Ketikan Tamu (Hi, Hallo, Allo, Selamat Pagi, Siang, Sore, Malam)
-    // Sesuai instruksi: balas dengan ketikan mereka + " Sampurasun. Saya KANG SUPA, asisten virtual Waroeng Jamur Mang Yayat. Silakan ajukan pertanyaan seputar usaha budidaya jamur tiram, baglog, produk, maupun kemitraan kami."
-    const cleanGreeting = q.replace(/[!.?]+$/, '').trim();
-    const isShortQuery = tokens.length <= 4;
-    const hasCoreMushroomKeyword = tokens.some(t => [
-      'jamur', 'baglog', 'kumbung', 'bibit', 'harga', 'beli', 'panen', 'hama', 'nutrisi', 'cara', 'alamat', 'pesan', 'roi'
+    // 1. Deteksi Sapaan Eksak (Hi, Hallo, Allo, Selamat Pagi, Siang, Sore, Malam, dll.)
+    const isShort = tokens.length <= 4;
+    const hasCoreKeyword = tokens.some(t => [
+      'jamur', 'tiram', 'baglog', 'kumbung', 'bibit', 'harga', 'beli', 'panen', 'hama', 'nutrisi',
+      'cara', 'alamat', 'pesan', 'belajar', 'mulai', 'segmen', 'suhu', 'inkubasi', 'sterilisasi', 'resep'
     ].includes(t));
 
-    if (isShortQuery && !hasCoreMushroomKeyword) {
+    if (isShort && !hasCoreKeyword) {
       let matchedGreeting = null;
 
       if (/^(?:hi|hai|hey|hei)\b/i.test(cleanGreeting)) {
@@ -1476,12 +1497,28 @@ function initKangSupaChatbot() {
       }
     }
 
-    const thanks = ['terima kasih', 'terimakasih', 'makasih', 'hatur nuhun', 'nuhun', 'thanks'];
-    if (tokens.some(t => thanks.some(th => q.includes(th)))) {
-      return 'Sami-sami! Senang bisa melayani Anda. Silakan tanyakan kembali jika ada hal lain yang ingin Anda ketahui seputar usaha budidaya jamur tiram kami.';
+    // 2. Percakapan Santai & Small Talk
+    if (['lagi apa', 'sedang apa', 'lagi ngapain', 'sedang ngapain', 'lagi sibuk apa'].some(p => cleanGreeting.includes(p))) {
+      return 'Sampurasun! Saya sedang standby siap melayani tamu dan calon konsumen Waroeng Jamur Mang Yayat. Ada yang ingin Anda tanyakan atau diskusikan seputar budidaya jamur tiram, baglog, produk olahan, atau kemitraan hari ini?';
     }
 
-    // 2. Deteksi Pertanyaan di Luar Topik (Out of Scope)
+    if (['siapa kamu', 'kamu siapa', 'nama kamu', 'siapa anda', 'kamu ini siapa'].some(p => cleanGreeting.includes(p))) {
+      return 'Sampurasun! Saya **KANG SUPA**, asisten virtual resmi Waroeng Jamur Mang Yayat. Saya bertugas melayani calon konsumen dan tamu yang ingin mempelajari usaha budidaya jamur tiram dengan materi dan bimbingan resmi dari Kang Irwan Setiawan.';
+    }
+
+    if (['apa kabar', 'gimana kabarnya', 'kumaha damang', 'kabar baik'].some(p => cleanGreeting.includes(p))) {
+      return 'Alhamdulillah sae (baik dan prima)! Sampurasun, semoga Anda sekeluarga senantiasa sehat dan berkah. Ada yang bisa Kang Supa bantu seputar agribisnis jamur tiram hari ini?';
+    }
+
+    if (['bisa bantu apa', 'kamu bisa apa', 'apa tugasmu', 'fungsi kamu', 'keahlian kamu'].some(p => cleanGreeting.includes(p))) {
+      return 'Saya bisa membantu menjelaskan seputar:\n• Langkah awal belajar budidaya jamur tiram untuk pemula\n• Pembuatan media baglog & perawatannya\n• Standar bangunan kumbung & ukuran rak\n• Suhu (16–28°C), kelembapan (90–95%) & cara siram kabut\n• Ciri jamur siap panen & SOP petik bersih sampai akar\n• Pengendalian hama & penyakit organik\n• Katalog harga jamur segar, baglog, & produk olahan\n• Peluang kemitraan usaha & bimbingan agribisnis.';
+    }
+
+    if (['terima kasih', 'terimakasih', 'makasih', 'hatur nuhun', 'nuhun', 'thanks'].some(th => cleanGreeting.includes(th))) {
+      return 'Sami-sami! Senang bisa melayani Anda dengan ramah dan profesional. Silakan tanyakan kembali jika ada hal lain yang ingin Anda pelajari seputar usaha budidaya jamur tiram kami.';
+    }
+
+    // 3. Pertanyaan di Luar Topik (Explicit Out-of-Scope)
     const outOfScopeKeywords = [
       'presiden', 'politik', 'pemilu', 'partai', 'pilkada', 'menteri', 'dpr', 'uu', 'negara',
       'coding', 'python', 'javascript', 'html', 'css', 'php', 'program', 'java', 'react', 'code', 'script',
@@ -1495,7 +1532,14 @@ function initKangSupaChatbot() {
       return 'Mohon maaf, itu diluar pengetahuan saya. Tanyakan lebih lanjut ke WA **0821-1991-8783** langsung kepada Owner Waroeng Jamur Mang Yayat (Kang Irwan).';
     }
 
-    // 3. Pencocokan Cerdas & Presisi ke Basis Pengetahuan (Knowledge Base)
+    // 4. Pencocokan Cerdas & Berbobot ke Basis Pengetahuan (Knowledge Base)
+    const stopWords = new Set(['saya', 'ingin', 'mau', 'bisa', 'dan', 'yang', 'untuk', 'dari', 'ke', 'di', 'ini', 'itu', 'ada', 'pada', 'apa', 'lagi', 'dong', 'sih', 'ya', 'kah', 'tuh', 'nya', 'pun']);
+    const meaningfulTokens = tokens.filter(t => !stopWords.has(t) && t.length > 1);
+
+    if (meaningfulTokens.length === 0) {
+      return 'Mohon maaf, itu diluar pengetahuan saya. Tanyakan lebih lanjut ke WA **0821-1991-8783** langsung kepada Owner Waroeng Jamur Mang Yayat (Kang Irwan).';
+    }
+
     if (!knowledge || knowledge.length === 0) {
       return 'Waroeng Jamur Mang Yayat siap melayani pemesanan jamur tiram segar, baglog siap berbuah, dan kemitraan agribisnis. Silakan hubungi WhatsApp resmi: **0821-1991-8783**.';
     }
@@ -1506,12 +1550,22 @@ function initKangSupaChatbot() {
       const answerLower = (item.answer || '').toLowerCase();
       const keywords = (item.keywords || []).map(k => k.toLowerCase());
 
-      tokens.forEach(tok => {
-        if (tok.length <= 1) return;
-        if (keywords.includes(tok)) score += 16;
-        else if (keywords.some(k => k.includes(tok) || tok.includes(k))) score += 8;
-        if (titleLower.includes(tok)) score += 10;
-        if (answerLower.includes(tok)) score += 2;
+      meaningfulTokens.forEach(tok => {
+        // Kata umum jamur/tiram/budidaya diberi bobot dasar rendah agar kata kunci spesifik mendominasi
+        const tokenWeight = ['jamur', 'tiram', 'budidaya'].includes(tok) ? 3 : 15;
+
+        if (keywords.includes(tok)) {
+          score += (tokenWeight * 3);
+        } else if (keywords.some(k => k.includes(tok) || tok.includes(k))) {
+          score += (tokenWeight * 1.5);
+        }
+
+        if (titleLower.includes(tok)) {
+          score += (tokenWeight * 2);
+        }
+        if (answerLower.includes(tok)) {
+          score += 2;
+        }
       });
 
       return { item, score };
@@ -1519,11 +1573,12 @@ function initKangSupaChatbot() {
 
     scored.sort((a, b) => b.score - a.score);
 
-    if (scored[0] && scored[0].score >= 6) {
+    // Threshold relevansi minimal
+    if (scored[0] && scored[0].score >= 20) {
       return scored[0].item.answer;
     }
 
-    // 4. Verifikasi Konteks Domain Jamur / Pertanian / Usaha
+    // Verifikasi domain
     const domainTerms = [
       'jamur', 'tiram', 'baglog', 'kumbung', 'bibit', 'panen', 'miselium', 'spora', 'pinhead',
       'sterilisasi', 'steam', 'inokulasi', 'inkubasi', 'pengukusan', 'serbuk', 'kayu', 'dedak', 'huut', 'kapur', 'dolomit',
@@ -1533,7 +1588,7 @@ function initKangSupaChatbot() {
       'suhu', 'lembab', 'kelembaban', 'modal', 'roi', 'hasil', 'berat', 'omset',
       'alamat', 'lokasi', 'tempat', 'dimana', 'cicarate', 'sindangsuka', 'kawalu', 'tasikmalaya',
       'kontak', 'wa', 'whatsapp', 'telepon', 'pemilik', 'owner', 'irwan', 'mang yayat',
-      'harga', 'beli', 'pesan', 'order', 'gizi', 'manfaat', 'khasiat', 'protein', 'kolesterol'
+      'harga', 'beli', 'pesan', 'order', 'gizi', 'manfaat', 'khasiat', 'protein', 'kolesterol', 'belajar', 'mulai', 'pemula'
     ];
     const isDomainQuery = tokens.some(t => domainTerms.some(d => d.includes(t) || t.includes(d)));
 
