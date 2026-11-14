@@ -947,7 +947,10 @@ Detail Kebutuhan: ${message}
 // =========================================================================
 async function syncWithBackendStore() {
   try {
-    const res = await fetch('/api/data');
+    let res = await fetch('/api/data').catch(() => null);
+    if (!res || !res.ok) {
+      res = await fetch('data/store.json').catch(() => null);
+    }
     if (res.ok) {
       const store = await res.json();
       if (store.products && store.products.length > 0) {

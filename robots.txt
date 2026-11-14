@@ -5,4 +5,4 @@ Disallow: /admin.html
 Disallow: /login.html
 Disallow: /data/
 
-Sitemap: https://waroengjamurmangyayat.com/sitemap.xml
+Sitemap: https://waroengjamurmangyayat.my.id/sitemap.xml

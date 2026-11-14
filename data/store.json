@@ -20,7 +20,8 @@
     "googleSiteVerification": "",
     "googleAnalyticsId": "",
     "ogImage": "assets/images/hero-mushroom.jpg",
-    "score": 95
+    "score": 95,
+    "baseUrl": "https://waroengjamurmangyayat.my.id"
   },
   "roi": {
     "baglogCost": 3500,
