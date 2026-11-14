@@ -8,6 +8,8 @@ sistem autentikasi Login/Logout, dan optimasi SEO Google.
 import http.server
 import socketserver
 import json
+import time
+import re
 import os
 import sys
 import secrets
@@ -23,6 +25,44 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # Token session storage in-memory: token -> {"username": username, "time": timestamp}
 ACTIVE_TOKENS = {}
+
+# Security & Anti-Spam state (in-memory sliding window):
+IP_LEAD_REQUESTS = {}   # IP -> [timestamps]
+LOGIN_ATTEMPTS = {}     # IP -> {"count": int, "locked_until": timestamp}
+
+def check_ip_rate_limit(ip, max_requests=5, window_seconds=300):
+    """Sliding-window rate limiter for leads/form submissions"""
+    now = time.time()
+    reqs = IP_LEAD_REQUESTS.get(ip, [])
+    reqs = [t for t in reqs if now - t < window_seconds]
+    if len(reqs) >= max_requests:
+        IP_LEAD_REQUESTS[ip] = reqs
+        return False, int(window_seconds - (now - reqs[0]))
+    reqs.append(now)
+    IP_LEAD_REQUESTS[ip] = reqs
+    return True, 0
+
+def check_login_lockout(ip, max_failures=5, lockout_seconds=900):
+    """Brute-force protection for admin login attempts"""
+    now = time.time()
+    record = LOGIN_ATTEMPTS.get(ip)
+    if record and record.get('locked_until', 0) > now:
+        remaining = int(record['locked_until'] - now)
+        return False, remaining
+    return True, 0
+
+def record_failed_login(ip, max_failures=5, lockout_seconds=900):
+    now = time.time()
+    record = LOGIN_ATTEMPTS.get(ip, {'count': 0, 'locked_until': 0})
+    record['count'] += 1
+    if record['count'] >= max_failures:
+        record['locked_until'] = now + lockout_seconds
+    LOGIN_ATTEMPTS[ip] = record
+
+def clear_login_attempts(ip):
+    if ip in LOGIN_ATTEMPTS:
+        del LOGIN_ATTEMPTS[ip]
+
 
 def get_store_data():
     if not os.path.exists(STORE_PATH):
@@ -156,6 +196,15 @@ Sitemap: {base_url}/sitemap.xml
         return False, str(e)
 
 class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
+    def get_client_ip(self):
+        forwarded = self.headers.get('X-Forwarded-For')
+        if forwarded:
+            return forwarded.split(',')[0].strip()
+        real_ip = self.headers.get('X-Real-IP')
+        if real_ip:
+            return real_ip.strip()
+        return self.client_address[0] if self.client_address else '127.0.0.1'
+
     def end_headers(self):
         # Enable CORS and caching headers
         self.send_header('Access-Control-Allow-Origin', '*')
@@ -257,8 +306,26 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
         except Exception:
             req_data = {}
 
-        # API: Login
+        # API: Login dengan Proteksi Anti-Brute-Force Lockout
         if path == '/api/auth/login':
+            client_ip = self.get_client_ip()
+
+            # Cek status lockout IP
+            can_attempt, wait_sec = check_login_lockout(client_ip, max_failures=5, lockout_seconds=900)
+            if not can_attempt:
+                resp = {
+                    'success': False,
+                    'message': f'Akun/IP sementara dikunci demi keamanan karena 5x percobaan gagal. Silakan coba lagi dalam {int(wait_sec/60) + 1} menit.'
+                }
+                payload = json.dumps(resp).encode('utf-8')
+                self.send_response(429)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.send_header('Retry-After', str(wait_sec))
+                self.send_header('Content-Length', str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
+                return
+
             username = req_data.get('username', '').strip()
             password = req_data.get('password', '').strip()
             auth_cfg = get_auth_config()
@@ -268,6 +335,7 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
 
             # Toleran terhadap huruf besar/kecil pada username
             if username.lower() == stored_user.lower() and password == stored_pwd:
+                clear_login_attempts(client_ip)
                 token = secrets.token_hex(24)
                 ACTIVE_TOKENS[token] = {
                     'username': stored_user,
@@ -287,6 +355,7 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
                 self.wfile.write(payload)
                 return
             else:
+                record_failed_login(client_ip, max_failures=5, lockout_seconds=900)
                 resp = {
                     'success': False,
                     'message': 'Username atau kata sandi tidak cocok. Silakan periksa kembali!'
@@ -392,18 +461,66 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
             self.wfile.write(payload)
             return
 
-        # API: Record new Lead from contact form
+        # API: Leads (Pesan / Konsultasi Masuk) dengan Proteksi Anti-Spam & Honeypot
         if path == '/api/leads':
+            client_ip = self.get_client_ip()
+
+            # 1. IP Rate Limiter: Maksimal 5 kiriman per 5 menit per IP
+            is_allowed, retry_after = check_ip_rate_limit(client_ip, max_requests=5, window_seconds=300)
+            if not is_allowed:
+                resp = {
+                    'success': False,
+                    'message': f'Terlalu banyak permintaan pesan dari perangkat Anda. Mohon tunggu {retry_after} detik sebelum mengirim kembali demi keamanan sistem.'
+                }
+                payload = json.dumps(resp).encode('utf-8')
+                self.send_response(429)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.send_header('Retry-After', str(retry_after))
+                self.send_header('Content-Length', str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
+                return
+
+            # 2. Honeypot check: bot otomatis mengisi hidden field
+            hp = str(req_data.get('hp', '')).strip()
+            if hp:
+                # Diam-diam pura-pura sukses agar bot tidak mencari celah lain, tapi jangan simpan ke database!
+                resp = {'success': True, 'lead': {'id': 'hp-trap', 'name': 'Filtered', 'status': 'Dropped'}}
+                payload = json.dumps(resp).encode('utf-8')
+                self.send_response(200)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.send_header('Content-Length', str(len(payload)))
+                self.end_headers()
+                self.wfile.write(payload)
+                return
+
+            # 3. Sanitasi & Validasi Payload
+            raw_name = str(req_data.get('name', 'Anonim'))[:100].strip()
+            raw_phone = re.sub(r'[^0-9+]', '', str(req_data.get('phone', '-')))[:20].strip()
+            raw_interest = str(req_data.get('interest', '-'))[:200].strip()
+            raw_message = str(req_data.get('message', '-'))[:1000].strip()
+
+            def clean_text(t):
+                return re.sub(r'<[^>]*>', '', t)
+
+            name = clean_text(raw_name)
+            message = clean_text(raw_message)
+
+            # Deteksi keyword spam mencurigakan (judi, slot, casino, link phishing asing)
+            spam_triggers = ['slot', 'judi', 'casino', 'poker', 'gacor', 'viagra', 'crypto', 'loan', 't.me/']
+            is_spam = any(k in message.lower() or k in name.lower() for k in spam_triggers)
+
             store = get_store_data()
             leads = store.get('leads', [])
             new_lead = {
                 'id': f"lead-{int(datetime.now().timestamp())}",
                 'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
-                'name': req_data.get('name', 'Anonim'),
-                'phone': req_data.get('phone', '-'),
-                'interest': req_data.get('interest', '-'),
-                'message': req_data.get('message', '-'),
-                'status': 'Baru'
+                'name': name,
+                'phone': raw_phone,
+                'interest': raw_interest,
+                'message': message,
+                'status': 'Spam' if is_spam else 'Baru',
+                'ip': client_ip
             }
             leads.insert(0, new_lead)
             store['leads'] = leads

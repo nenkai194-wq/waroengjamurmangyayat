@@ -167,7 +167,7 @@
             <span>Kp. Cicarate, Kawalu, Kota Tasikmalaya</span>
           </a>
           <span class="text-[#5A3E2F]">|</span>
-          <a href="https://wa.me/6282119918783" target="_blank" class="hover:text-amber-300 transition-colors flex items-center gap-1.5 font-bold text-amber-400 text-xs">
+          <a href="https://wa.me/6282119918783" target="_blank" rel="noopener noreferrer nofollow" class="hover:text-amber-300 transition-colors flex items-center gap-1.5 font-bold text-amber-400 text-xs">
             <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
             <span>WhatsApp: 0821-1991-8783</span>
           </a>
@@ -190,7 +190,7 @@
             <span>Kp. Cicarate, Kawalu, Kota Tasikmalaya</span>
           </a>
           <span class="text-[#5A3E2F]">|</span>
-          <a href="https://wa.me/6282119918783" target="_blank" class="hover:text-amber-300 transition-colors flex items-center gap-1.5 font-bold text-amber-400 text-xs">
+          <a href="https://wa.me/6282119918783" target="_blank" rel="noopener noreferrer nofollow" class="hover:text-amber-300 transition-colors flex items-center gap-1.5 font-bold text-amber-400 text-xs">
             <i data-lucide="phone" class="w-3.5 h-3.5 text-emerald-400"></i>
             <span>WhatsApp: 0821-1991-8783</span>
           </a>
@@ -231,7 +231,7 @@
 
         <!-- Kanan: Menu Pemesanan & Mitra Cukup Gunakan Ikon Troli Saja (Segaris Lurus dengan Batas WhatsApp) -->
         <div class="hidden sm:flex items-center shrink-0">
-          <a href="https://wa.me/6282119918783?text=Sampurasun%20Waroeng%20Jamur%20Mang%20Yayat,%20saya%20tertarik%20dengan%20produk%20dan%20kemitraan%20agribisnis%20Anda." target="_blank" class="relative group/troli w-10 h-10 rounded-full bg-[#D8631B] hover:bg-[#ba5010] text-white flex items-center justify-center shadow-lg shadow-orange-950/40 transition-all duration-200 hover:scale-105 active:scale-95 border border-white/10" aria-label="Pemesanan & Mitra (Troli Belanja)" title="Pemesanan & Mitra">
+          <a href="https://wa.me/6282119918783?text=Sampurasun%20Waroeng%20Jamur%20Mang%20Yayat,%20saya%20tertarik%20dengan%20produk%20dan%20kemitraan%20agribisnis%20Anda." target="_blank" rel="noopener noreferrer nofollow" class="relative group/troli w-10 h-10 rounded-full bg-[#D8631B] hover:bg-[#ba5010] text-white flex items-center justify-center shadow-lg shadow-orange-950/40 transition-all duration-200 hover:scale-105 active:scale-95 border border-white/10" aria-label="Pemesanan & Mitra (Troli Belanja)" title="Pemesanan & Mitra">
             <i data-lucide="shopping-cart" class="w-4.5 h-4.5 text-white transition-transform group-hover/troli:scale-110"></i>
             <span class="absolute -bottom-8 right-0 bg-stone-900/95 text-white text-[10px] font-bold px-2 py-0.5 rounded whitespace-nowrap opacity-0 group-hover/troli:opacity-100 transition-opacity pointer-events-none shadow-md border border-stone-700">
               Pemesanan / Mitra
@@ -295,7 +295,7 @@
       </div>
 
       <div class="pt-6 border-t border-stone-200">
-        <a href="https://wa.me/6282119918783" target="_blank" class="w-full py-3 rounded-full bg-forest-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
+        <a href="https://wa.me/6282119918783" target="_blank" rel="noopener noreferrer nofollow" class="w-full py-3 rounded-full bg-forest-800 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-md">
           <i data-lucide="message-circle" class="w-4 h-4 text-amber-300"></i>
           <span>Chat WhatsApp Resmi</span>
         </a>
@@ -832,7 +832,7 @@
                   <strong>Waroeng Jamur Mang Yayat</strong> terbuka untuk menjalin hubungan dan kemitraan dengan berbagai pihak—mulai dari pedagang pasar, pengelola resto & kafe, hingga calon petani pembudidaya—demi mengembangkan potensi agribisnis jamur tiram di Indonesia.
                 </p>
                 <div class="pt-2">
-                  <a href="https://wa.me/6282119918783?text=Sampurasun%20Mang%20Yayat,%20saya%20tertarik%20menjalin%20kerja%20sama%20kemitraan%20usaha%20jamur%20tiram." target="_blank" class="btn-ll-orange">
+                  <a href="https://wa.me/6282119918783?text=Sampurasun%20Mang%20Yayat,%20saya%20tertarik%20menjalin%20kerja%20sama%20kemitraan%20usaha%20jamur%20tiram." target="_blank" rel="noopener noreferrer nofollow" class="btn-ll-orange">
                     <i data-lucide="handshake" class="w-4 h-4"></i>
                     <span>Diskusikan Peluang Kemitraan</span>
                   </a>
@@ -1507,6 +1507,11 @@
                   <p class="text-xs text-stone-500 mb-6">Pesan Anda akan langsung terhubung ke WhatsApp resmi Waroeng Jamur Mang Yayat.</p>
 
                   <form id="consultationForm" class="space-y-4">
+                    <!-- Proteksi Keamanan Anti-Spam Honeypot (Tak terlihat oleh manusia, menjebak bot otomatis) -->
+                    <div style="position: absolute; left: -9999px; top: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                      <label for="consultationHp">Website URL (leave empty)</label>
+                      <input type="text" id="consultationHp" name="company_website_url_hp" tabindex="-1" autocomplete="off" value="">
+                    </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label for="formName" class="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">Nama Lengkap *</label>
@@ -1536,10 +1541,14 @@
                       <textarea id="formMessage" rows="3" placeholder="Tuliskan jumlah perkiraan kebutuhan atau pertanyaan Anda..." class="w-full px-4 py-3 rounded-xl border border-stone-300 text-xs focus:ring-2 focus:ring-forest-700 focus:outline-none bg-white"></textarea>
                     </div>
 
-                    <button type="submit" class="w-full btn-ll-primary !py-3.5">
+                    <button type="submit" id="btnSubmitConsultation" class="w-full btn-ll-primary !py-3.5 transition-all">
                       <i data-lucide="send" class="w-4 h-4 text-amber-300"></i>
                       <span>Kirim Pesan ke WhatsApp Resmi Mang Yayat</span>
                     </button>
+                    <div class="flex items-center justify-center gap-1.5 text-[11px] text-stone-500 pt-1">
+                      <i data-lucide="shield-check" class="w-3.5 h-3.5 text-forest-600"></i>
+                      <span>Terproteksi Anti-Spam Bot & Terenkripsi Langsung ke WhatsApp Resmi</span>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -1604,7 +1613,7 @@
         <div class="lg:col-span-4 space-y-3">
           <h4 class="text-xs font-bold uppercase tracking-widest text-amber-400">Kanal Resmi & Kemitraan</h4>
           <ul class="text-xs space-y-2.5 text-stone-400 font-medium">
-            <li><a href="https://wa.me/6282119918783" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> WhatsApp Resmi (+62 821-1991-8783)</a></li>
+            <li><a href="https://wa.me/6282119918783" target="_blank" rel="noopener noreferrer nofollow" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="message-circle" class="w-3.5 h-3.5 text-emerald-400"></i> WhatsApp Resmi (+62 821-1991-8783)</a></li>
             <li><button data-page="produk" class="page-switch-btn hover:text-white transition-colors flex items-center gap-1.5 text-left"><i data-lucide="package" class="w-3.5 h-3.5 text-amber-400"></i> Katalog Pasokan Kuliner & Grosir</button></li>
             <li><button data-page="kalkulator" class="page-switch-btn hover:text-white transition-colors flex items-center gap-1.5 text-left"><i data-lucide="calculator" class="w-3.5 h-3.5 text-emerald-400"></i> Simulator Potensi Panen & Keuntungan</button></li>
             <li><a href="https://www.google.com/search?q=Waroeng+Jamur+Mang+Yayat+Tasikmalaya" target="_blank" class="hover:text-white transition-colors flex items-center gap-1.5"><i data-lucide="map-pin" class="w-3.5 h-3.5 text-orangebrand-500"></i> Profil Bisnis Google Maps Tasikmalaya</a></li>

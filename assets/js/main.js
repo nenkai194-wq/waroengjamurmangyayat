@@ -848,6 +848,9 @@ function initFaqAccordion() {
 // =========================================================================
 // 10. FORMULIR KONTAK WHATSAPP
 // =========================================================================
+// Timestamp pemuatan form untuk deteksi time-gate bot
+window.__formLoadedAt = Date.now();
+
 function initContactForm() {
   const form = document.getElementById('consultationForm');
   if (!form) return;
@@ -862,27 +865,71 @@ function initContactForm() {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    // 1. Honeypot check (jika field tersembunyi terisi oleh bot crawler)
+    const hpInput = document.getElementById('consultationHp');
+    if (hpInput && hpInput.value.trim() !== '') {
+      console.warn('[Security] Bot detected via honeypot.');
+      alert('Terima kasih! Pesan Anda telah berhasil terkirim ke Waroeng Jamur Mang Yayat.');
+      form.reset();
+      return;
+    }
+
+    // 2. Time-Gate check (mencegah auto-submission instan oleh script bot < 2.5 detik)
+    const elapsed = Date.now() - (window.__formLoadedAt || 0);
+    if (elapsed < 2500) {
+      alert('Pengisian terlalu cepat. Demi keamanan sistem, mohon luangkan waktu beberapa detik untuk memeriksa data Anda.');
+      return;
+    }
+
+    // 3. Client Rate-Limiting Cooldown (30 detik per pengiriman)
+    const lastSubmit = parseInt(localStorage.getItem('wj_last_form_submit') || '0', 10);
+    const now = Date.now();
+    if (now - lastSubmit < 30000) {
+      const waitSec = Math.ceil((30000 - (now - lastSubmit)) / 1000);
+      alert(`Pesan Anda sebelumnya telah terkirim. Mohon tunggu ${waitSec} detik lagi sebelum mengirim pesan baru.`);
+      return;
+    }
+
     const name = document.getElementById('formName').value.trim();
     const phone = document.getElementById('formPhone').value.trim().replace(/[^0-9]/g, '');
     const interest = document.getElementById('formInterest').value;
     const message = document.getElementById('formMessage').value.trim() || '-';
 
-    // Validasi standar angka nasional WhatsApp (minimal 10 angka)
-    if (!phone || phone.length < 10) {
-      alert('Mohon masukkan nomor WhatsApp yang valid (berupa angka standar nasional, contoh: 081234567890).');
+    // 4. Validasi Format WhatsApp Standar Indonesia (08xx, 628xx)
+    const phoneRegex = /^(?:08|628)[0-9]{8,12}$/;
+    if (!phone || !phoneRegex.test(phone)) {
+      alert('Mohon masukkan nomor WhatsApp Indonesia yang valid (dimulai dengan 08... dan berjumlah 10-14 digit angka).');
       if (phoneInput) phoneInput.focus();
       return;
     }
 
-    // Rekam lead ke backend admin secara otomatis
+    // 5. Anti-Spam Keyword Filter (mencegah link spam judi/slot/phishing)
+    const spamKeywords = ['slot', 'judi', 'casino', 'poker', 'gacor', 'viagra', 'crypto', 't.me/', 'bit.ly/'];
+    const combinedText = (name + ' ' + message).toLowerCase();
+    const isSpamDetected = spamKeywords.some(keyword => combinedText.includes(keyword));
+    if (isSpamDetected) {
+      alert('Pesan Anda terindikasi mengandung format atau kata kunci yang dilarang.');
+      return;
+    }
+
+    // Rekam lead ke backend admin secara otomatis (dilengkapi token honeypot)
     try {
       fetch('/api/leads', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, phone, interest, message })
+        body: JSON.stringify({ name, phone, interest, message, hp: '' })
+      }).then(res => {
+        if (res.status === 429) {
+          console.warn('[Security] IP Rate limit reached on server.');
+        }
       }).catch(() => {});
-    } catch (e) {}
+    } catch (err) {}
 
+    // Catat waktu pengiriman untuk cooldown
+    localStorage.setItem('wj_last_form_submit', Date.now().toString());
+
+    // Susun pesan terstruktur WhatsApp resmi
     const fullMsg = `Pesan Konsultasi Resmi - Waroeng Jamur Mang Yayat
 Nama Pemesan: ${name}
 Nomor WhatsApp: ${phone}
@@ -891,7 +938,7 @@ Detail Kebutuhan: ${message}
 
 (Terkirim langsung via portal website resmi Waroeng Jamur Mang Yayat Tasikmalaya)`;
 
-    window.open(`https://wa.me/6282119918783?text=${encodeURIComponent(fullMsg)}`, '_blank');
+    window.open(`https://wa.me/6282119918783?text=${encodeURIComponent(fullMsg)}`, '_blank', 'noopener,noreferrer');
   });
 }
 
