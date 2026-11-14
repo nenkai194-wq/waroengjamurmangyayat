@@ -62,7 +62,7 @@
           });
           const data = await res.json();
           if (data.authenticated) {
-            window.location.replace('admin.html');
+            window.location.replace('dapur-utama.html');
           } else {
             sessionStorage.removeItem('wjmy_admin_token');
             localStorage.removeItem('wjmy_admin_token');
@@ -290,7 +290,7 @@
           }
 
           setTimeout(() => {
-            window.location.replace('admin.html');
+            window.location.replace('dapur-utama.html');
           }, 600);
         } else {
           showAlert('error', result.message || 'Username atau kata sandi tidak cocok.');

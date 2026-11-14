@@ -175,8 +175,8 @@ def generate_sitemap_and_robots(data):
         robots_content = f'''# Robots.txt Resmi Waroeng Jamur Mang Yayat
 User-agent: *
 Allow: /
-Disallow: /admin.html
 Disallow: /dapur.html
+Disallow: /dapur-utama.html
 Disallow: /data/
 
 Sitemap: {base_url}/sitemap.xml
@@ -222,22 +222,22 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
         query_params = urllib.parse.parse_qs(parsed.query)
 
         # Aliases & Stealth Admin Routing
-        if path == '/dapur' or path == '/dapur/':
+        if path in ('/dapur', '/dapur/'):
             self.send_response(301)
             self.send_header('Location', '/dapur.html')
             self.end_headers()
             return
 
-        # Redirect any probe to old /login to homepage (anti-probing)
-        if path in ('/login', '/login/', '/login.html'):
-            self.send_response(302)
-            self.send_header('Location', '/')
+        if path in ('/dapur-utama', '/dapur-utama/'):
+            self.send_response(301)
+            self.send_header('Location', '/dapur-utama.html')
             self.end_headers()
             return
 
-        if path == '/admin' or path == '/admin/':
-            self.send_response(301)
-            self.send_header('Location', '/admin.html')
+        # Anti-Probing Defense: Redirect any probing to old admin or login URLs straight to homepage
+        if path in ('/admin', '/admin/', '/admin.html', '/login', '/login/', '/login.html'):
+            self.send_response(302)
+            self.send_header('Location', '/')
             self.end_headers()
             return
 
@@ -660,7 +660,7 @@ def run():
         print(f"[Waroeng Jamur Mang Yayat] Server running on port {PORT} (Multi-threaded)")
         print(f"Frontend: http://localhost:{PORT}")
         print(f"Login: http://localhost:{PORT}/dapur.html")
-        print(f"Admin Backend: http://localhost:{PORT}/admin.html")
+        print(f"Admin Backend: http://localhost:{PORT}/dapur-utama.html")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
