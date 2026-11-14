@@ -18,7 +18,7 @@ import base64
 from datetime import datetime
 import compressor
 
-PORT = 8080
+PORT = int(os.environ.get('PORT', 8080))
 STORE_PATH = os.path.join(os.path.dirname(__file__), 'data', 'store.json')
 AUTH_PATH = os.path.join(os.path.dirname(__file__), 'data', 'auth.json')
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
