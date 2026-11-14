@@ -84,7 +84,7 @@
     (function() {
       const token = sessionStorage.getItem('wjmy_admin_token') || localStorage.getItem('wjmy_admin_token');
       if (!token) {
-        window.location.replace('login.html');
+        window.location.replace('dapur.html');
       }
     })();
   </script>
@@ -1024,7 +1024,7 @@
     async function verifyAuthSession() {
       const token = getAdminToken();
       if (!token) {
-        window.location.replace('login.html');
+        window.location.replace('dapur.html');
         return false;
       }
       try {
@@ -1046,7 +1046,7 @@
           sessionStorage.removeItem('wjmy_admin_user');
           localStorage.removeItem('wjmy_admin_token');
           localStorage.removeItem('wjmy_admin_user');
-          window.location.replace('login.html?expired=1');
+          window.location.replace('dapur.html?expired=1');
           return false;
         }
       } catch (err) {
@@ -1802,7 +1802,7 @@
       localStorage.removeItem('wjmy_admin_token');
       localStorage.removeItem('wjmy_admin_user');
 
-      window.location.replace('login.html?logged_out=1');
+      window.location.replace('dapur.html?logged_out=1');
     }
 
     // Fungsi Ganti Username / Password

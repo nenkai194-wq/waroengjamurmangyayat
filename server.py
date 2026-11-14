@@ -176,7 +176,7 @@ def generate_sitemap_and_robots(data):
 User-agent: *
 Allow: /
 Disallow: /admin.html
-Disallow: /login.html
+Disallow: /dapur.html
 Disallow: /data/
 
 Sitemap: {base_url}/sitemap.xml
@@ -221,10 +221,17 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
         path = parsed.path
         query_params = urllib.parse.parse_qs(parsed.query)
 
-        # Aliases
-        if path == '/login' or path == '/login/':
+        # Aliases & Stealth Admin Routing
+        if path == '/dapur' or path == '/dapur/':
             self.send_response(301)
-            self.send_header('Location', '/login.html')
+            self.send_header('Location', '/dapur.html')
+            self.end_headers()
+            return
+
+        # Redirect any probe to old /login to homepage (anti-probing)
+        if path in ('/login', '/login/', '/login.html'):
+            self.send_response(302)
+            self.send_header('Location', '/')
             self.end_headers()
             return
 
@@ -652,7 +659,7 @@ def run():
     with server_class(("0.0.0.0", PORT), handler) as httpd:
         print(f"[Waroeng Jamur Mang Yayat] Server running on port {PORT} (Multi-threaded)")
         print(f"Frontend: http://localhost:{PORT}")
-        print(f"Login: http://localhost:{PORT}/login.html")
+        print(f"Login: http://localhost:{PORT}/dapur.html")
         print(f"Admin Backend: http://localhost:{PORT}/admin.html")
         try:
             httpd.serve_forever()
