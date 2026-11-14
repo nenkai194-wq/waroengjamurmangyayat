@@ -12,7 +12,9 @@ import os
 import sys
 import secrets
 import urllib.parse
+import base64
 from datetime import datetime
+import compressor
 
 PORT = 8080
 STORE_PATH = os.path.join(os.path.dirname(__file__), 'data', 'store.json')
@@ -423,6 +425,97 @@ class WaroengJamurHandler(http.server.SimpleHTTPRequestHandler):
             resp = {'success': ok, 'message': msg}
             payload = json.dumps(resp).encode('utf-8')
             self.send_response(200 if ok else 500)
+            self.send_header('Content-Type', 'application/json; charset=utf-8')
+            self.send_header('Content-Length', str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+            return
+
+        # API: Upload & Kompresi Otomatis Media (Foto & Video)
+        if path == '/api/upload':
+            token, session = verify_token(self.headers)
+            if not token:
+                body_token = req_data.get('token', '')
+                if body_token in ACTIVE_TOKENS:
+                    token = body_token
+                    session = ACTIVE_TOKENS[body_token]
+
+            if not token:
+                self.send_response(401)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(json.dumps({'success': False, 'message': 'Autentikasi admin diperlukan'}).encode('utf-8'))
+                return
+
+            filename = req_data.get('filename', 'upload.jpg')
+            category = req_data.get('category', 'galeri')
+            data_b64 = req_data.get('data', '')
+            add_to_gallery = req_data.get('addToGallery', False)
+            title = req_data.get('title', 'Dokumentasi Kumbung')
+
+            if ',' in data_b64:
+                data_b64 = data_b64.split(',', 1)[1]
+
+            try:
+                raw_bytes = base64.b64decode(data_b64)
+            except Exception as e:
+                self.send_response(400)
+                self.send_header('Content-Type', 'application/json; charset=utf-8')
+                self.end_headers()
+                self.wfile.write(json.dumps({'success': False, 'message': f'Gagal decode base64: {e}'}).encode('utf-8'))
+                return
+
+            ext = os.path.splitext(filename)[1].lower()
+            safe_basename = "".join(c for c in os.path.splitext(filename)[0] if c.isalnum() or c in ('-', '_')).rstrip()
+            if not safe_basename:
+                safe_basename = 'upload'
+            timestamp = int(datetime.now().timestamp())
+            unique_name = f"{safe_basename}-{timestamp}{ext}"
+
+            # Tentukan direktori penyimpanan
+            if ext in ['.mp4', '.mov', '.avi', '.mkv']:
+                target_rel = os.path.join('assets', 'videos', unique_name)
+                target_full = os.path.join(BASE_DIR, target_rel)
+                result = compressor.compress_video_data(raw_bytes, target_full)
+                file_type = 'video'
+            else:
+                target_rel = os.path.join('assets', 'images', category, unique_name)
+                target_full = os.path.join(BASE_DIR, target_rel)
+                result = compressor.compress_image_data(raw_bytes, target_full)
+                file_type = 'image'
+
+            url = target_rel.replace('\\', '/')
+
+            # Jika add_to_gallery aktif, catat ke store.json
+            if add_to_gallery:
+                store = get_store_data()
+                if 'gallery' not in store:
+                    store['gallery'] = []
+                new_item = {
+                    'id': f'gal-{timestamp}',
+                    'title': title,
+                    'type': file_type,
+                    'url': url,
+                    'thumb': url,
+                    'origSize': result.get('orig_size', 0),
+                    'compressedSize': result.get('compressed_size', 0),
+                    'savedPercent': result.get('saved_percent', 0.0),
+                    'createdAt': datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                }
+                store['gallery'].insert(0, new_item)
+                save_store_data(store)
+
+            resp = {
+                'success': True,
+                'url': url,
+                'fileType': file_type,
+                'origSize': result.get('orig_size', 0),
+                'compressedSize': result.get('compressed_size', 0),
+                'savedPercent': result.get('saved_percent', 0.0),
+                'message': f"File berhasil dikompresi ({result.get('saved_percent', 0.0)}% hemat storage)"
+            }
+            payload = json.dumps(resp).encode('utf-8')
+            self.send_response(200)
             self.send_header('Content-Type', 'application/json; charset=utf-8')
             self.send_header('Content-Length', str(len(payload)))
             self.end_headers()
